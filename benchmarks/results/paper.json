@@ -1,0 +1,295 @@
+{
+  "source": {
+    "description": "Audited reference values for the results collected in benchmarks/README.md; rendered into its generated block by scripts/render_results.py.",
+    "protocols": "benchmarks/README.md",
+    "characterization": "docs/CHARACTERIZATION.md",
+    "recorded": "2026-09-24"
+  },
+  "benchmark_table": [
+    {
+      "model": "30B-A3B",
+      "setting": "BF16",
+      "step": 1700,
+      "scores_pct": {
+        "AIME24": 53.89,
+        "AIME25": 36.67,
+        "MATH500": 92.65,
+        "AMC23": 88.04,
+        "GSM8K": 90.81
+      },
+      "average_pct": 72.41,
+      "average_source": "benchmarks/README.md, Mathematical reasoning",
+      "collapsed": false
+    },
+    {
+      "model": "30B-A3B",
+      "setting": "NVFP4",
+      "step": 700,
+      "scores_pct": {
+        "AIME24": 44.44,
+        "AIME25": 30.0,
+        "MATH500": 88.8,
+        "AMC23": 77.17,
+        "GSM8K": 88.95
+      },
+      "average_pct": 65.87,
+      "average_source": "benchmarks/README.md, Mathematical reasoning",
+      "collapsed": true
+    },
+    {
+      "model": "30B-A3B",
+      "setting": "NVFP4+TIS",
+      "step": 1700,
+      "scores_pct": {
+        "AIME24": 36.11,
+        "AIME25": 27.22,
+        "MATH500": 88.3,
+        "AMC23": 69.02,
+        "GSM8K": 95.26
+      },
+      "average_pct": 63.18,
+      "average_source": "benchmarks/README.md, Mathematical reasoning",
+      "collapsed": false
+    },
+    {
+      "model": "30B-A3B",
+      "setting": "NVFP4+TRIAGE",
+      "step": 1700,
+      "scores_pct": {
+        "AIME24": 51.67,
+        "AIME25": 38.33,
+        "MATH500": 91.6,
+        "AMC23": 77.72,
+        "GSM8K": 95.47
+      },
+      "average_pct": 70.96,
+      "average_source": "benchmarks/README.md, Mathematical reasoning",
+      "collapsed": false
+    },
+    {
+      "model": "4B",
+      "setting": "BF16",
+      "step": 600,
+      "scores_pct": {
+        "AIME24": 24.67,
+        "AIME25": 23.33,
+        "MATH500": 84.1,
+        "AMC23": 67.4,
+        "GSM8K": 92.04
+      },
+      "average_pct": 58.31,
+      "average_source": "benchmarks/README.md, Mathematical reasoning",
+      "collapsed": false
+    },
+    {
+      "model": "4B",
+      "setting": "NVFP4",
+      "step": 300,
+      "scores_pct": {
+        "AIME24": 8.33,
+        "AIME25": 8.33,
+        "MATH500": 78.4,
+        "AMC23": 50.0,
+        "GSM8K": 90.45
+      },
+      "average_pct": 47.1,
+      "average_source": "benchmarks/README.md, Mathematical reasoning",
+      "collapsed": true
+    },
+    {
+      "model": "4B",
+      "setting": "NVFP4+TIS",
+      "step": 300,
+      "scores_pct": {
+        "AIME24": 16.11,
+        "AIME25": 18.33,
+        "MATH500": 80.9,
+        "AMC23": 53.8,
+        "GSM8K": 84.73
+      },
+      "average_pct": 50.77,
+      "average_source": "benchmarks/README.md, Mathematical reasoning",
+      "collapsed": true
+    },
+    {
+      "model": "4B",
+      "setting": "NVFP4+TRIAGE",
+      "step": 300,
+      "scores_pct": {
+        "AIME24": 19.17,
+        "AIME25": 17.5,
+        "MATH500": 82.0,
+        "AMC23": 56.52,
+        "GSM8K": 89.99
+      },
+      "average_pct": 53.04,
+      "average_source": "benchmarks/README.md, Mathematical reasoning",
+      "collapsed": false
+    },
+    {
+      "model": "4B",
+      "setting": "NVFP4+TRIAGE",
+      "step": 600,
+      "scores_pct": {
+        "AIME24": 27.33,
+        "AIME25": 20.0,
+        "MATH500": 85.8,
+        "AMC23": 67.39,
+        "GSM8K": 92.04
+      },
+      "average_pct": 58.51,
+      "average_source": "benchmarks/README.md, Mathematical reasoning",
+      "collapsed": false
+    }
+  ],
+  "natural_generation": {
+    "source": "benchmarks/README.md, Natural-generation throughput and iteration time",
+    "model": "Qwen3-30B-A3B-Base",
+    "hardware": "1 node, 8 B300 GPUs",
+    "statistic": "arithmetic mean of 10 measured iterations (2-11), after 2 warmups",
+    "max_response_tokens": 20480,
+    "r3_capture": false,
+    "bf16_sampler_backend": "triton",
+    "excludes": [
+      "initialization",
+      "evaluation",
+      "checkpoint saving"
+    ],
+    "rows": [
+      {
+        "setting": "BF16",
+        "batch": 256,
+        "iteration_seconds": 208.2,
+        "rollout_tokens_per_second": 2977,
+        "iteration_speedup": 1,
+        "rollout_speedup": 1
+      },
+      {
+        "setting": "BF16",
+        "batch": 512,
+        "iteration_seconds": 254.5,
+        "rollout_tokens_per_second": 3798,
+        "iteration_speedup": 1,
+        "rollout_speedup": 1
+      },
+      {
+        "setting": "NVFP4",
+        "batch": 256,
+        "iteration_seconds": 169.4,
+        "rollout_tokens_per_second": 6201,
+        "iteration_speedup": 1.23,
+        "rollout_speedup": 2.08
+      },
+      {
+        "setting": "NVFP4",
+        "batch": 512,
+        "iteration_seconds": 191.0,
+        "rollout_tokens_per_second": 8942,
+        "iteration_speedup": 1.33,
+        "rollout_speedup": 2.35
+      },
+      {
+        "setting": "NVFP4+TRIAGE",
+        "batch": 256,
+        "iteration_seconds": 172.1,
+        "rollout_tokens_per_second": 6745,
+        "iteration_speedup": 1.21,
+        "rollout_speedup": 2.27
+      },
+      {
+        "setting": "NVFP4+TRIAGE",
+        "batch": 512,
+        "iteration_seconds": 195.8,
+        "rollout_tokens_per_second": 8717,
+        "iteration_speedup": 1.3,
+        "rollout_speedup": 2.3
+      }
+    ]
+  },
+  "learner_overhead": {
+    "source": "benchmarks/README.md, Natural-generation throughput and iteration time (learner-overhead paragraph)",
+    "hardware": "8 B300 GPUs",
+    "pairs": 5,
+    "workload": "same frozen batch",
+    "statistic": "paired median",
+    "percent": 0.84,
+    "absolute_seconds": 0.225
+  },
+  "fixed_output": {
+    "source": "benchmarks/README.md, Standalone sampler after configuration selection",
+    "model": "Qwen3-30B-A3B",
+    "hardware": "1 B300 GPU",
+    "N": 512,
+    "L": 4096,
+    "C": 512,
+    "repeats": 5,
+    "selection_candidates_per_precision": 12,
+    "backend": "flashinfer_trtllm",
+    "kv_cache": "bf16",
+    "speedup": 1.175,
+    "rows": [
+      {
+        "precision": "BF16",
+        "memory_fraction": 0.95,
+        "median_tps": 15470.01,
+        "min_tps": 15447.56,
+        "max_tps": 15509.83
+      },
+      {
+        "precision": "NVFP4",
+        "memory_fraction": 0.9,
+        "median_tps": 18175.67,
+        "min_tps": 18126.37,
+        "max_tps": 18195.69
+      }
+    ]
+  },
+  "long_tail": {
+    "source": "benchmarks/README.md, Controlled long-tail workloads",
+    "model": "Qwen3-30B-A3B",
+    "hardware": "8 independent single-GPU replicas",
+    "seed": 20260912,
+    "lengths": [
+      2048,
+      8192,
+      20480
+    ],
+    "counts_at_256": [
+      224,
+      24,
+      8
+    ],
+    "uniform_length": 3200,
+    "rows": [
+      {
+        "batch": 256,
+        "repeats": 5,
+        "bf16_seconds": 156.13,
+        "nvfp4_seconds": 120.83,
+        "speedup": 1.292,
+        "uniform_speedup": 1.538
+      },
+      {
+        "batch": 512,
+        "repeats": 3,
+        "bf16_seconds": 165.26,
+        "nvfp4_seconds": 129.28,
+        "speedup": 1.278,
+        "uniform_speedup": 1.513
+      }
+    ]
+  },
+  "ablation": {
+    "source": "assets/figures/ablation.png; benchmarks/results/curves/",
+    "model": "Qwen3-4B-Base",
+    "branch_step": 300,
+    "variants": [
+      "TRIAGE",
+      "Gate+TIS",
+      "TIS",
+      "NVFP4"
+    ],
+    "quantitative_table": null,
+    "note": "Curves are available; no numeric per-variant summary table is supplied."
+  }
+}

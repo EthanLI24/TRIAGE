@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/InfiXAI/TRIAGE
+    about: Training, calibration, environment setup, and stack documentation (see the docs/ folder from the repository landing page).

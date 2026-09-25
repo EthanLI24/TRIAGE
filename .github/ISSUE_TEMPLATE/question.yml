@@ -1,0 +1,24 @@
+name: Question
+description: Ask a question about usage, configuration, or the method
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For usage setup, check [docs/TRAINING.md](docs/TRAINING.md) and [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md) first.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What would you like to know?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: |
+        Optional. What are you trying to do? Include relevant environment or stack details (model, mode, Slime/SGLang/Megatron revisions) if the question is setup-specific.
+    validations:
+      required: false
