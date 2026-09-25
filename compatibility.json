@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "reference_stack": {
+    "slime": {
+      "commit": "56eb6b8b17e0a9cf913bef1b6b72b5e3611e341b",
+      "url": "https://github.com/THUDM/slime",
+      "container_path": "/root/slime"
+    },
+    "sglang": {
+      "commit": "3dddaba34c0e266c64b6d5c4b055cc5e842636ca",
+      "version": "0.5.9",
+      "router_version": "0.3.2",
+      "url": "https://github.com/sgl-project/sglang",
+      "container_path": "/sgl-workspace/sglang"
+    },
+    "megatron_lm": {
+      "commit": "3714d81d418c9f1bca4594fc35f9e8289f652862",
+      "url": "https://github.com/NVIDIA/Megatron-LM",
+      "container_path": "/root/Megatron-LM"
+    },
+    "mini_transformer": {
+      "commit": "5fa9373427d528748b4ae205bdd6dc97720eb0ab",
+      "url": null,
+      "note": "Internal release; no public repository URL is available. Required only for MoE NVFP4 modes (SHOULD_REPLACE_TE_GROUPLINEAR=1).",
+      "container_path": "/root/miniTransformer"
+    },
+    "transformer_engine": {
+      "version": null,
+      "note": "Used through Megatron's --transformer-impl transformer_engine and NVTE_* switches; the version is not pinned by this repository and comes from the installed training environment."
+    },
+    "flashinfer": {
+      "version": "0.6.13"
+    }
+  },
+  "overlay_sha256": {
+    "policy_extension/TRIAGE.py": "487a1080cbdc5c16c034ce32e1cb3b275614d4b44b05a9149fcc97b9ea4dbb74",
+    "patches/slime/patch_tokenmean_custom_normalizer.py": "4ab63a9ff78e45eb8b3776f1d129bbb0ac605cc863554d7661ff2061d08014ab",
+    "scripts/apply_patches.sh": "a259e652215420d4374f6d4c682a47da80e5307119771c5e75aaa53606156186",
+    "patches/slime/patch_routing_replay_indices.py": "545b2c9058eda502835f20b9b6345f584f561b628554ed82200c12475e45df6a",
+    "patches/sglang/patch_sglang_r3_force_return.py": "3259b703a768c8cfc40b8c6ff341af54b8193aeb52ca420b561d1346fe9a9286",
+    "patches/sglang/patch_sglang_r3_bypassed_topk.py": "9059a55a0ec854427d1e3fd02667cbb8c8517844676b9f537a2c3765029407b7",
+    "patches/slime/patch_slime_r3_route_validation.py": "6c4ce2d43b73b21562d84c57bee4661393192da3e63d6d1066f080b057387204",
+    "policy_extension/triage_config.py": "784fabda5e8681c149feff7d2259f9c3fa5529d61a4fc397b2ec9e5650fdbac4",
+    "policy_extension/triage_calibration.py": "dd23355c498d00c0fd2aec3d0eaeef95b2693bcca496fac3a4f41dd250bb409b"
+  },
+  "measurement_environments": {
+    "paper_standalone_sampler": {
+      "torch": "2.9.1+cu130",
+      "sglang": "0.5.10",
+      "flashinfer": "0.6.12",
+      "sglang_kernel": "0.4.1+cu130",
+      "hardware": "B300",
+      "source": "Standalone-sampler measurement environment used for the paper timing runs",
+      "note": "Measurement provenance; does not replace the source patch reference revisions."
+    }
+  }
+}

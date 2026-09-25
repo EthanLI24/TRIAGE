@@ -1,0 +1,1193 @@
+{
+  "source": "Final audited aggregates from the standalone serving and paired DAPO harness measurement campaigns, 2026-09-13.",
+  "publication_status": "Supplementary aggregate measurements; the curated tables in benchmarks/README.md derive from these points.",
+  "fixed_workload_points": [
+    {
+      "experiment": "extend512",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 512,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 14122.354057435816,
+      "min": 14016.56116262809,
+      "max": 14128.216593581064,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "extend512",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 512,
+      "G": 1,
+      "variant": "bf16_triton",
+      "precision": "bf16",
+      "routing": false,
+      "median": 12935.111321267075,
+      "min": 12919.407036888293,
+      "max": 12935.630583841234,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "extend512",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 512,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 17600.76561463539,
+      "min": 17552.776803150085,
+      "max": 17633.288439796463,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "extend512",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 512,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 14299.915601884375,
+      "min": 14285.198293657122,
+      "max": 14302.540522474726,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "extend512",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 512,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 14609.314997373762,
+      "min": 14506.22527137436,
+      "max": 14720.31570316349,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "headline4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 512,
+      "G": 1,
+      "variant": "bf16_t03",
+      "precision": "bf16",
+      "routing": false,
+      "median": 15470.01441313926,
+      "min": 15447.560710057236,
+      "max": 15509.830232932803,
+      "valid_repeats": 5,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.95
+        },
+        "C": 512
+      }
+    },
+    {
+      "experiment": "headline4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 512,
+      "G": 1,
+      "variant": "nvfp4_t02",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 18175.665235421595,
+      "min": 18126.373642419592,
+      "max": 18195.691531022978,
+      "valid_repeats": 5,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.9
+        },
+        "C": 512
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 1024,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16_t03",
+      "precision": "bf16",
+      "routing": false,
+      "median": 5574.57618913582,
+      "min": 5560.93617937391,
+      "max": 5616.502319891848,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.95
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 1024,
+      "C": 64,
+      "G": 1,
+      "variant": "nvfp4_t02",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 8643.53484445947,
+      "min": 8638.42154160573,
+      "max": 8674.757227776436,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.9
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 1024,
+      "C": 512,
+      "G": 1,
+      "variant": "bf16_t03",
+      "precision": "bf16",
+      "routing": false,
+      "median": 22490.14294781432,
+      "min": 22328.78184602141,
+      "max": 22640.39920760309,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.95
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 1024,
+      "C": 512,
+      "G": 1,
+      "variant": "nvfp4_t02",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 28565.834645812152,
+      "min": 28539.46210401188,
+      "max": 29149.907872679407,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.9
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 8192,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16_t03",
+      "precision": "bf16",
+      "routing": false,
+      "median": 4178.350819137887,
+      "min": 4177.377944328872,
+      "max": 4186.804359819621,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.95
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 8192,
+      "C": 64,
+      "G": 1,
+      "variant": "nvfp4_t02",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 5978.580847679318,
+      "min": 5966.017763065569,
+      "max": 5986.40641941644,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.9
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 8192,
+      "C": 512,
+      "G": 1,
+      "variant": "bf16_t03",
+      "precision": "bf16",
+      "routing": false,
+      "median": 8766.800740047805,
+      "min": 8739.0552702743,
+      "max": 8769.573731720604,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.95
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 8192,
+      "C": 512,
+      "G": 1,
+      "variant": "nvfp4_t02",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 10033.311978585638,
+      "min": 9998.216037720083,
+      "max": 10045.865067043176,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.9
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 16384,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16_t03",
+      "precision": "bf16",
+      "routing": false,
+      "median": 3300.3062173460035,
+      "min": 3299.376069063712,
+      "max": 3300.3558378126063,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.95
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 16384,
+      "C": 64,
+      "G": 1,
+      "variant": "nvfp4_t02",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 4341.844045961075,
+      "min": 4336.586496367418,
+      "max": 4343.286650759902,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.9
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 16384,
+      "C": 512,
+      "G": 1,
+      "variant": "bf16_t03",
+      "precision": "bf16",
+      "routing": false,
+      "median": 4898.145066211108,
+      "min": 4893.518969371735,
+      "max": 4900.965776515032,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.95
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 16384,
+      "C": 512,
+      "G": 1,
+      "variant": "nvfp4_t02",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 5511.1131237452055,
+      "min": 5504.820206686406,
+      "max": 5527.757304005264,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.9
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 20480,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16_t03",
+      "precision": "bf16",
+      "routing": false,
+      "median": 2994.13806262396,
+      "min": 2981.2785149536658,
+      "max": 2996.4692996333633,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.95
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 20480,
+      "C": 64,
+      "G": 1,
+      "variant": "nvfp4_t02",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 3832.149202717221,
+      "min": 3826.5255374729154,
+      "max": 3832.532018096381,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.9
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 20480,
+      "C": 512,
+      "G": 1,
+      "variant": "bf16_t03",
+      "precision": "bf16",
+      "routing": false,
+      "median": 3971.9486470200945,
+      "min": 3970.835467953638,
+      "max": 3976.3299806430628,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.95
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "30b",
+      "N": 512,
+      "L": 20480,
+      "C": 512,
+      "G": 1,
+      "variant": "nvfp4_t02",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 4503.377235248129,
+      "min": 4500.852192776537,
+      "max": 4510.371911399393,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {
+          "mem_fraction_static": 0.9
+        }
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "4b",
+      "N": 512,
+      "L": 1024,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 12931.771666191295,
+      "min": 12903.471771061377,
+      "max": 12938.472245765519,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "4b",
+      "N": 512,
+      "L": 1024,
+      "C": 64,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 13114.785100247987,
+      "min": 12958.036817797263,
+      "max": 13177.639346188786,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "4b",
+      "N": 512,
+      "L": 8192,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 6315.097961822524,
+      "min": 6295.3760634911005,
+      "max": 6315.698045033517,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "4b",
+      "N": 512,
+      "L": 8192,
+      "C": 64,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 6385.365342528718,
+      "min": 6371.919955626967,
+      "max": 6391.432549693035,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "4b",
+      "N": 512,
+      "L": 16384,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 3961.548433094016,
+      "min": 3961.0871206326015,
+      "max": 3964.6794401263505,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "lengths",
+      "model": "4b",
+      "N": 512,
+      "L": 16384,
+      "C": 64,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 3975.631507197522,
+      "min": 3972.6220027739155,
+      "max": 3994.693424600366,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 16,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 1830.0066442674051,
+      "min": 1824.7518049042183,
+      "max": 1838.8677447691073,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 16,
+      "G": 1,
+      "variant": "bf16_triton",
+      "precision": "bf16",
+      "routing": false,
+      "median": 1638.2359443366306,
+      "min": 1635.8077803656615,
+      "max": 1639.3591502743009,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 16,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 2680.7289937787673,
+      "min": 2659.402315398342,
+      "max": 2686.411888841971,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 32,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 2900.569137995494,
+      "min": 2890.570098519204,
+      "max": 2908.8824376870666,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 32,
+      "G": 1,
+      "variant": "bf16_triton",
+      "precision": "bf16",
+      "routing": false,
+      "median": 2633.077918172946,
+      "min": 2631.3861102458986,
+      "max": 2634.958247382901,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 32,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 4443.031741492197,
+      "min": 4433.740182248568,
+      "max": 4454.912599343678,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 4829.113088667579,
+      "min": 4825.331439409794,
+      "max": 4842.112250289907,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16_triton",
+      "precision": "bf16",
+      "routing": false,
+      "median": 4397.536347589322,
+      "min": 4397.264932968472,
+      "max": 4431.382009993417,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 64,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 7346.9793336852445,
+      "min": 7320.303301598307,
+      "max": 7365.754821257395,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 128,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 7676.743790575979,
+      "min": 7672.545394711001,
+      "max": 7707.814359547013,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 128,
+      "G": 1,
+      "variant": "bf16_triton",
+      "precision": "bf16",
+      "routing": false,
+      "median": 7128.53063225881,
+      "min": 7119.756306179416,
+      "max": 7135.612572629399,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 128,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 10899.228354800118,
+      "min": 10799.376506660874,
+      "max": 10909.559013281098,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 256,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 11378.226623693581,
+      "min": 11377.312323057835,
+      "max": 11394.244480516552,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 256,
+      "G": 1,
+      "variant": "bf16_triton",
+      "precision": "bf16",
+      "routing": false,
+      "median": 10531.070891467987,
+      "min": 10489.45678183628,
+      "max": 10535.17327428088,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "30b",
+      "N": 512,
+      "L": 4096,
+      "C": 256,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 14641.046168753237,
+      "min": 14586.202331430844,
+      "max": 14681.521346293346,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 16,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 3784.05718804213,
+      "min": 3777.3530350928395,
+      "max": 3804.9337950796735,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 16,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 3828.7202401361005,
+      "min": 3803.7596217036375,
+      "max": 3852.226078057611,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 32,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 6308.181656772109,
+      "min": 6301.915107425914,
+      "max": 6324.132685747929,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 32,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 6472.455743953193,
+      "min": 6433.45678718242,
+      "max": 6502.656102523779,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 64,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 8952.113169173974,
+      "min": 8951.774390469416,
+      "max": 8974.708694506906,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 64,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 9153.80875149229,
+      "min": 9075.782020704495,
+      "max": 9165.469139327357,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 128,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 11459.44843961565,
+      "min": 11436.679544109691,
+      "max": 11463.202165755813,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 128,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 11664.411054992272,
+      "min": 11664.09212610614,
+      "max": 11671.576899472595,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 256,
+      "G": 1,
+      "variant": "bf16",
+      "precision": "bf16",
+      "routing": false,
+      "median": 14246.746791038047,
+      "min": 14246.617938574842,
+      "max": 14282.158026358295,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "triton",
+        "server": {}
+      }
+    },
+    {
+      "experiment": "sweep4k",
+      "model": "4b",
+      "N": 512,
+      "L": 4096,
+      "C": 256,
+      "G": 1,
+      "variant": "nvfp4",
+      "precision": "nvfp4",
+      "routing": false,
+      "median": 14321.030659244874,
+      "min": 14295.377089308704,
+      "max": 14321.306884590382,
+      "valid_repeats": 3,
+      "complete": true,
+      "configuration": {
+        "backend": "flashinfer_trtllm",
+        "server": {}
+      }
+    }
+  ],
+  "natural_dapo_paired": [
+    {
+      "model": "30b",
+      "N": 256,
+      "mode": "rollout",
+      "batches": 5,
+      "paired_tps_ratio_median": 1.2008333729912237,
+      "paired_tps_ratio_min": 0.8535133662709247,
+      "paired_tps_ratio_max": 1.6595026583345796,
+      "paired_wall_ratio_median": 1.0982057577177184
+    },
+    {
+      "model": "30b",
+      "N": 256,
+      "mode": "reward",
+      "batches": 5,
+      "paired_tps_ratio_median": 1.2950909481182098,
+      "paired_tps_ratio_min": 0.7026811499816904,
+      "paired_tps_ratio_max": 2.403047199571714,
+      "paired_wall_ratio_median": 1.3862857652199332
+    },
+    {
+      "model": "30b",
+      "N": 512,
+      "mode": "rollout",
+      "batches": 3,
+      "paired_tps_ratio_median": 1.0669186102648867,
+      "paired_tps_ratio_min": 1.0507100366235733,
+      "paired_tps_ratio_max": 2.3423390817298757,
+      "paired_wall_ratio_median": 1.1175892660088786
+    },
+    {
+      "model": "30b",
+      "N": 512,
+      "mode": "reward",
+      "batches": 3,
+      "paired_tps_ratio_median": 0.6651172796612812,
+      "paired_tps_ratio_min": 0.4860895911412784,
+      "paired_tps_ratio_max": 0.7045472009372367,
+      "paired_wall_ratio_median": 0.630505683573733
+    },
+    {
+      "model": "4b",
+      "N": 256,
+      "mode": "rollout",
+      "batches": 3,
+      "paired_tps_ratio_median": 1.2353977888994714,
+      "paired_tps_ratio_min": 0.714494017704179,
+      "paired_tps_ratio_max": 1.2669369683579923,
+      "paired_wall_ratio_median": 1.6236654247782298
+    },
+    {
+      "model": "4b",
+      "N": 256,
+      "mode": "reward",
+      "batches": 3,
+      "paired_tps_ratio_median": 1.5179340125520242,
+      "paired_tps_ratio_min": 1.221107119916491,
+      "paired_tps_ratio_max": 1.5239309850125342,
+      "paired_wall_ratio_median": 1.7293308235274747
+    }
+  ],
+  "protocol_notes": [
+    "Fixed-output points are median/min/max; exploration and preflight points are excluded.",
+    "DAPO harness includes sampler/reward only, not learner updates or weight synchronization.",
+    "Natural-generation lengths can differ between precision settings.",
+    "30B N512 reward has paired TPS ratio 0.665; keep this counterexample alongside favorable cases.",
+    "The natural-generation RL iteration protocol and the standalone-harness protocol measure different workloads; results from different protocols are not pooled."
+  ]
+}

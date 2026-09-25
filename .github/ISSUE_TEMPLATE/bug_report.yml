@@ -1,0 +1,68 @@
+name: Bug report
+description: Report a bug in the TRIAGE loss extension, launchers, or patches
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please fill in the sections below so we can reproduce the issue.
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug description
+      description: What happened, and what did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: |
+        Minimal steps and exact commands. For launcher issues, include the dry-run command, e.g. `DRY_RUN=1 bash examples/train_triage.sh`.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, hardware (GPU model and count, or CPU-only), Python, PyTorch, and NumPy versions.
+      placeholder: |
+        OS: Ubuntu 22.04
+        Hardware: 8xB300 (or CPU-only)
+        Python: 3.11
+        PyTorch:
+        NumPy:
+    validations:
+      required: true
+  - type: textarea
+    id: stack-versions
+    attributes:
+      label: Training stack versions
+      description: |
+        Slime / SGLang / Megatron-LM commits or versions, if the bug involves training. The pinned reference revisions are listed in `compatibility.json`; please state whether yours match.
+      placeholder: |
+        slime commit:
+        sglang version/commit:
+        Megatron-LM commit:
+  - type: textarea
+    id: preflight
+    attributes:
+      label: Preflight output
+      description: For training-mode issues, paste the output of `python scripts/preflight.py --mode <bf16|nvfp4|triage>` (run inside the training environment).
+      render: shell
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error output / logs
+      description: Paste the full traceback or relevant log excerpt.
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues for duplicates.
+          required: true
+        - label: For CPU-test failures, I can reproduce with `bash scripts/run_tests.sh` on a clean checkout.
+          required: false

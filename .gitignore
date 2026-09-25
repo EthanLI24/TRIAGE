@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+wandb/
+checkpoints/
+outputs/
+*.log
+.DS_Store
+/external/
+/models/
+/data/
+/calibration_data/
+*.egg-info/
+build/
+dist/

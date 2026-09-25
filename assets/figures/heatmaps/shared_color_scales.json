@@ -1,0 +1,26 @@
+{
+  "tokenmass": {
+    "vmin_percent": 1.9582086933500017e-05,
+    "vmax_percent": 0.9527564560895543,
+    "cmap": "magma",
+    "norm": "LogNorm",
+    "clip": true,
+    "scope": "Both 4B (50-step) and 30B (100-step), all requested windows; per metric",
+    "zero_color": "#E6E6E6",
+    "selection": "Existing v2 1.5th/99.5th positive-cell percentile rule, pooled across both models",
+    "low_saturated_cells": 891,
+    "high_saturated_cells": 307
+  },
+  "advmass": {
+    "vmin_percent": 2.862904225712172e-05,
+    "vmax_percent": 1.193457405909439,
+    "cmap": "magma",
+    "norm": "LogNorm",
+    "clip": true,
+    "scope": "Both 4B (50-step) and 30B (100-step), all requested windows; per metric",
+    "zero_color": "#E6E6E6",
+    "selection": "Existing v2 1.5th/99.5th positive-cell percentile rule, pooled across both models",
+    "low_saturated_cells": 918,
+    "high_saturated_cells": 307
+  }
+}

@@ -1,0 +1,1928 @@
+{
+  "seed": 0,
+  "cluster_tolerance": 1e-06,
+  "visible_delta_range": [
+    -3.0,
+    3.0
+  ],
+  "windows": {
+    "4b": {
+      "healthy": [
+        57,
+        81
+      ],
+      "drift": [
+        138,
+        162
+      ],
+      "pre-terminal": [
+        219,
+        243
+      ],
+      "terminal": [
+        300,
+        324
+      ]
+    },
+    "30b": {
+      "healthy": [
+        157,
+        181
+      ],
+      "drift": [
+        338,
+        362
+      ],
+      "pre-terminal": [
+        519,
+        543
+      ],
+      "terminal": [
+        700,
+        724
+      ]
+    }
+  },
+  "stage_audits": {
+    "4b:healthy": {
+      "model_key": "4b",
+      "window_label": "healthy",
+      "window_start": 57,
+      "window_end": 81,
+      "response_count": 6400,
+      "valid_completion_tokens": 8314354,
+      "a_zero_tokens": 3377668,
+      "a_nonzero_tokens": 4936686,
+      "a_minus_token_count": 1644566,
+      "a_plus_token_count": 690327,
+      "raw_abs_a_total": 3492511.295054853,
+      "raw_abs_a_minus": 877060.7629571557,
+      "raw_abs_a_plus": 857493.9305729568,
+      "effective_total": 3009.4218325018883,
+      "effective_a_minus": 601.2560308449974,
+      "effective_a_plus": 919.7450507181139,
+      "visible_raw_total": 3488810.4293513,
+      "visible_raw_a_minus": 873910.0952659249,
+      "visible_raw_a_plus": 857487.2171908319,
+      "left_overflow_tokens": 5605,
+      "right_overflow_tokens": 69,
+      "delta_zero_tokens": 113883,
+      "nonfinite_valid_tokens": 0,
+      "response_length_mismatch_responses": 0,
+      "min_abs_nonzero_delta": 2.1316282072803006e-14,
+      "shard_count": 200,
+      "observed_discrete_advantage_levels": 30,
+      "a_zero_fraction": 0.40624539200519966,
+      "a_minus_occupancy": 0.33313157855289965,
+      "a_plus_occupancy": 0.13983611677955615,
+      "raw_a_minus_mass_fraction": 0.2511261063633527,
+      "raw_a_plus_mass_fraction": 0.24552359552483255,
+      "effective_a_minus_mass_fraction": 0.19979121050808027,
+      "effective_a_plus_mass_fraction": 0.3056218442974085,
+      "rho_raw": 1.0228186249331523,
+      "rho_effective": 0.6537203221431328,
+      "visible_only_raw_a_minus_mass_fraction": 0.2504894183741641,
+      "visible_only_raw_a_plus_mass_fraction": 0.24578211816176862
+    },
+    "4b:drift": {
+      "model_key": "4b",
+      "window_label": "drift",
+      "window_start": 138,
+      "window_end": 162,
+      "response_count": 6400,
+      "valid_completion_tokens": 15702795,
+      "a_zero_tokens": 6367585,
+      "a_nonzero_tokens": 9335210,
+      "a_minus_token_count": 3274106,
+      "a_plus_token_count": 1148977,
+      "raw_abs_a_total": 6671715.142837852,
+      "raw_abs_a_minus": 1929467.8700878322,
+      "raw_abs_a_plus": 1282627.6708336174,
+      "effective_total": 3215.9846563339233,
+      "effective_a_minus": 669.9310330362377,
+      "effective_a_plus": 841.2603249093576,
+      "visible_raw_total": 6668716.566475421,
+      "visible_raw_a_minus": 1927713.4885128438,
+      "visible_raw_a_plus": 1282603.2645049095,
+      "left_overflow_tokens": 3977,
+      "right_overflow_tokens": 62,
+      "delta_zero_tokens": 626980,
+      "nonfinite_valid_tokens": 0,
+      "response_length_mismatch_responses": 0,
+      "min_abs_nonzero_delta": 2.1316282072803006e-14,
+      "shard_count": 200,
+      "observed_discrete_advantage_levels": 30,
+      "a_zero_fraction": 0.4055064719370023,
+      "a_minus_occupancy": 0.3507265503400566,
+      "a_plus_occupancy": 0.12307993071393145,
+      "raw_a_minus_mass_fraction": 0.289201176725768,
+      "raw_a_plus_mass_fraction": 0.19224856627917186,
+      "effective_a_minus_mass_fraction": 0.2083128822511015,
+      "effective_a_plus_mass_fraction": 0.26158716996751974,
+      "rho_raw": 1.5043086267067778,
+      "rho_effective": 0.7963421228838055,
+      "visible_only_raw_a_minus_mass_fraction": 0.2890681391684468,
+      "visible_only_raw_a_plus_mass_fraction": 0.19233135067589122
+    },
+    "4b:pre-terminal": {
+      "model_key": "4b",
+      "window_label": "pre-terminal",
+      "window_start": 219,
+      "window_end": 243,
+      "response_count": 6400,
+      "valid_completion_tokens": 28707881,
+      "a_zero_tokens": 11789023,
+      "a_nonzero_tokens": 16918858,
+      "a_minus_token_count": 7499250,
+      "a_plus_token_count": 1585504,
+      "raw_abs_a_total": 12390986.336013913,
+      "raw_abs_a_minus": 4483254.877340168,
+      "raw_abs_a_plus": 1933675.0878875852,
+      "effective_total": 3109.159601390362,
+      "effective_a_minus": 886.530714509289,
+      "effective_a_plus": 618.0187326924448,
+      "visible_raw_total": 12385692.404674858,
+      "visible_raw_a_minus": 4479464.862434864,
+      "visible_raw_a_plus": 1933641.324576825,
+      "left_overflow_tokens": 6462,
+      "right_overflow_tokens": 130,
+      "delta_zero_tokens": 726656,
+      "nonfinite_valid_tokens": 0,
+      "response_length_mismatch_responses": 0,
+      "min_abs_nonzero_delta": 2.1316282072803006e-14,
+      "shard_count": 200,
+      "observed_discrete_advantage_levels": 30,
+      "a_zero_fraction": 0.4106545864531067,
+      "a_minus_occupancy": 0.4432480017268305,
+      "a_plus_occupancy": 0.09371223518750497,
+      "raw_a_minus_mass_fraction": 0.36181581964219944,
+      "raw_a_plus_mass_fraction": 0.15605497701723992,
+      "effective_a_minus_mass_fraction": 0.2851351581028031,
+      "effective_a_plus_mass_fraction": 0.1987735632535807,
+      "rho_raw": 2.318515093576467,
+      "rho_effective": 1.4344722378350114,
+      "visible_only_raw_a_minus_mass_fraction": 0.3616644686528897,
+      "visible_only_raw_a_plus_mass_fraction": 0.1561189525300169
+    },
+    "4b:terminal": {
+      "model_key": "4b",
+      "window_label": "terminal",
+      "window_start": 300,
+      "window_end": 324,
+      "response_count": 6400,
+      "valid_completion_tokens": 19879241,
+      "a_zero_tokens": 11676484,
+      "a_nonzero_tokens": 8202757,
+      "a_minus_token_count": 3271242,
+      "a_plus_token_count": 742743,
+      "raw_abs_a_total": 5675857.546353191,
+      "raw_abs_a_minus": 1610543.4089420736,
+      "raw_abs_a_plus": 831912.4203861654,
+      "effective_total": 1697.2271969914436,
+      "effective_a_minus": 429.3683809383372,
+      "effective_a_plus": 331.1692408009621,
+      "visible_raw_total": 4588951.374764264,
+      "visible_raw_a_minus": 790680.3300400972,
+      "visible_raw_a_plus": 831586.5546515584,
+      "left_overflow_tokens": 1883822,
+      "right_overflow_tokens": 2265,
+      "delta_zero_tokens": 1672444,
+      "nonfinite_valid_tokens": 0,
+      "response_length_mismatch_responses": 0,
+      "min_abs_nonzero_delta": 2.1316282072803006e-14,
+      "shard_count": 200,
+      "observed_discrete_advantage_levels": 30,
+      "a_zero_fraction": 0.5873707150086867,
+      "a_minus_occupancy": 0.39879786759500496,
+      "a_plus_occupancy": 0.09054797063962763,
+      "raw_a_minus_mass_fraction": 0.2837533175893161,
+      "raw_a_plus_mass_fraction": 0.14657034881375405,
+      "effective_a_minus_mass_fraction": 0.25298226524972534,
+      "effective_a_plus_mass_fraction": 0.19512369433391283,
+      "rho_raw": 1.9359530756788985,
+      "rho_effective": 1.296522526971019,
+      "visible_only_raw_a_minus_mass_fraction": 0.1723008734388071,
+      "visible_only_raw_a_plus_mass_fraction": 0.18121494144057634
+    },
+    "30b:healthy": {
+      "model_key": "30b",
+      "window_label": "healthy",
+      "window_start": 157,
+      "window_end": 181,
+      "response_count": 6400,
+      "valid_completion_tokens": 6499841,
+      "a_zero_tokens": 2242788,
+      "a_nonzero_tokens": 4257053,
+      "a_minus_token_count": 1105976,
+      "a_plus_token_count": 677712,
+      "raw_abs_a_total": 3222915.9553447664,
+      "raw_abs_a_minus": 772933.8493082821,
+      "raw_abs_a_plus": 578064.2261703312,
+      "effective_total": 3026.407126426697,
+      "effective_a_minus": 614.4040669595535,
+      "effective_a_plus": 638.1271276346589,
+      "visible_raw_total": 3222182.4409095943,
+      "visible_raw_a_minus": 772217.2211549282,
+      "visible_raw_a_plus": 578064.2261703312,
+      "left_overflow_tokens": 615,
+      "right_overflow_tokens": 9,
+      "delta_zero_tokens": 709216,
+      "nonfinite_valid_tokens": 0,
+      "response_length_mismatch_responses": 0,
+      "min_abs_nonzero_delta": 2.1316282072803006e-14,
+      "shard_count": 200,
+      "observed_discrete_advantage_levels": 30,
+      "a_zero_fraction": 0.3450527482133794,
+      "a_minus_occupancy": 0.2597985038006339,
+      "a_plus_occupancy": 0.1591974542012984,
+      "raw_a_minus_mass_fraction": 0.23982438885087176,
+      "raw_a_plus_mass_fraction": 0.17936062689183396,
+      "effective_a_minus_mass_fraction": 0.20301434714270755,
+      "effective_a_plus_mass_fraction": 0.21085303496099705,
+      "rho_raw": 1.337107218049039,
+      "rho_effective": 0.962823927008025,
+      "visible_only_raw_a_minus_mass_fraction": 0.23965657914048402,
+      "visible_only_raw_a_plus_mass_fraction": 0.1794014574814543
+    },
+    "30b:drift": {
+      "model_key": "30b",
+      "window_label": "drift",
+      "window_start": 338,
+      "window_end": 362,
+      "response_count": 6400,
+      "valid_completion_tokens": 7318568,
+      "a_zero_tokens": 2956825,
+      "a_nonzero_tokens": 4361743,
+      "a_minus_token_count": 773165,
+      "a_plus_token_count": 470447,
+      "raw_abs_a_total": 3456187.577601731,
+      "raw_abs_a_minus": 602427.8277991414,
+      "raw_abs_a_plus": 404986.6349118948,
+      "effective_total": 2886.907472848892,
+      "effective_a_minus": 405.0406058620042,
+      "effective_a_plus": 397.53125614733193,
+      "visible_raw_total": 3454325.8353557885,
+      "visible_raw_a_minus": 601282.9986351132,
+      "visible_raw_a_plus": 404978.7916648984,
+      "left_overflow_tokens": 2212,
+      "right_overflow_tokens": 45,
+      "delta_zero_tokens": 1885788,
+      "nonfinite_valid_tokens": 0,
+      "response_length_mismatch_responses": 0,
+      "min_abs_nonzero_delta": 2.1316282072803006e-14,
+      "shard_count": 200,
+      "observed_discrete_advantage_levels": 30,
+      "a_zero_fraction": 0.4040168787117917,
+      "a_minus_occupancy": 0.1772605584510596,
+      "a_plus_occupancy": 0.10785756978345583,
+      "raw_a_minus_mass_fraction": 0.1743041470617083,
+      "raw_a_plus_mass_fraction": 0.11717727288196476,
+      "effective_a_minus_mass_fraction": 0.14030259357855251,
+      "effective_a_plus_mass_fraction": 0.13770141921280055,
+      "rho_raw": 1.4875252066779936,
+      "rho_effective": 1.0188899604711565,
+      "visible_only_raw_a_minus_mass_fraction": 0.1740666709784146,
+      "visible_only_raw_a_plus_mass_fraction": 0.11723815614608528
+    },
+    "30b:pre-terminal": {
+      "model_key": "30b",
+      "window_label": "pre-terminal",
+      "window_start": 519,
+      "window_end": 543,
+      "response_count": 6400,
+      "valid_completion_tokens": 8313013,
+      "a_zero_tokens": 3085574,
+      "a_nonzero_tokens": 5227439,
+      "a_minus_token_count": 1003385,
+      "a_plus_token_count": 534717,
+      "raw_abs_a_total": 4093358.3340081275,
+      "raw_abs_a_minus": 798318.4865233302,
+      "raw_abs_a_plus": 431242.88023754954,
+      "effective_total": 2919.031729578972,
+      "effective_a_minus": 413.63531162073474,
+      "effective_a_plus": 394.4220655734534,
+      "visible_raw_total": 4084493.8931002915,
+      "visible_raw_a_minus": 793121.5714519322,
+      "visible_raw_a_plus": 431192.3894242048,
+      "left_overflow_tokens": 11843,
+      "right_overflow_tokens": 184,
+      "delta_zero_tokens": 2225834,
+      "nonfinite_valid_tokens": 0,
+      "response_length_mismatch_responses": 0,
+      "min_abs_nonzero_delta": 2.1316282072803006e-14,
+      "shard_count": 200,
+      "observed_discrete_advantage_levels": 30,
+      "a_zero_fraction": 0.371173965444298,
+      "a_minus_occupancy": 0.19194580749770584,
+      "a_plus_occupancy": 0.10229043323126295,
+      "raw_a_minus_mass_fraction": 0.19502775505647807,
+      "raw_a_plus_mass_fraction": 0.10535185171909586,
+      "effective_a_minus_mass_fraction": 0.14170291724797238,
+      "effective_a_plus_mass_fraction": 0.1351208558566587,
+      "rho_raw": 1.8512038647074651,
+      "rho_effective": 1.0487124015725313,
+      "visible_only_raw_a_minus_mass_fraction": 0.1941786650218056,
+      "visible_only_raw_a_plus_mass_fraction": 0.10556813174640661
+    },
+    "30b:terminal": {
+      "model_key": "30b",
+      "window_label": "terminal",
+      "window_start": 700,
+      "window_end": 724,
+      "response_count": 6400,
+      "valid_completion_tokens": 14508487,
+      "a_zero_tokens": 5035848,
+      "a_nonzero_tokens": 9472639,
+      "a_minus_token_count": 3421042,
+      "a_plus_token_count": 719935,
+      "raw_abs_a_total": 7337849.048909843,
+      "raw_abs_a_minus": 2284560.749386728,
+      "raw_abs_a_plus": 673722.0723646879,
+      "effective_total": 3383.7494252324104,
+      "effective_a_minus": 744.2684697925527,
+      "effective_a_plus": 450.4687741876438,
+      "visible_raw_total": 6396279.939011276,
+      "visible_raw_a_minus": 1674584.9291128516,
+      "visible_raw_a_plus": 672121.416898191,
+      "left_overflow_tokens": 1247771,
+      "right_overflow_tokens": 6243,
+      "delta_zero_tokens": 2402361,
+      "nonfinite_valid_tokens": 0,
+      "response_length_mismatch_responses": 0,
+      "min_abs_nonzero_delta": 2.1316282072803006e-14,
+      "shard_count": 200,
+      "observed_discrete_advantage_levels": 30,
+      "a_zero_fraction": 0.3470967027781739,
+      "a_minus_occupancy": 0.36114983374749104,
+      "a_plus_occupancy": 0.07600152396813602,
+      "raw_a_minus_mass_fraction": 0.3113392949567607,
+      "raw_a_plus_mass_fraction": 0.09181465411376653,
+      "effective_a_minus_mass_fraction": 0.21995377797262075,
+      "effective_a_plus_mass_fraction": 0.13312710770736333,
+      "rho_raw": 3.3909542867850226,
+      "rho_effective": 1.6522087932392977,
+      "visible_only_raw_a_minus_mass_fraction": 0.26180607244837156,
+      "visible_only_raw_a_plus_mass_fraction": 0.10508005017086325
+    }
+  },
+  "window_robustness": [
+    {
+      "model_key": "4b",
+      "window_25": "219-243",
+      "window_50": "194-243",
+      "response_count_25": 6400,
+      "response_count_50": 12800,
+      "valid_token_count_25": 28707881,
+      "valid_token_count_50": 51035775,
+      "a_nonzero_token_count_25": 16918858,
+      "a_nonzero_token_count_50": 31909055,
+      "advantage_level_count_25": 30,
+      "advantage_level_count_50": 30,
+      "a_minus_occupancy_25": 0.4432480017268305,
+      "a_minus_occupancy_50": 0.45805950693306335,
+      "a_minus_raw_mass_25": 0.36181581964219944,
+      "a_minus_raw_mass_50": 0.3689969405237097,
+      "a_minus_effective_mass_25": 0.2851351581028031,
+      "a_minus_effective_mass_50": 0.2989153463493488,
+      "rho_raw_25": 2.318515093576467,
+      "rho_raw_50": 2.4535592622920026,
+      "rho_effective_25": 1.4344722378350114,
+      "rho_effective_50": 1.6099662260674366,
+      "token_heatmap_l1": 0.12944895827905634,
+      "token_heatmap_js_nats": 0.0037823202894579824
+    },
+    {
+      "model_key": "30b",
+      "window_25": "519-543",
+      "window_50": "494-543",
+      "response_count_25": 6400,
+      "response_count_50": 12800,
+      "valid_token_count_25": 8313013,
+      "valid_token_count_50": 16799330,
+      "a_nonzero_token_count_25": 5227439,
+      "a_nonzero_token_count_50": 10992414,
+      "advantage_level_count_25": 30,
+      "advantage_level_count_50": 30,
+      "a_minus_occupancy_25": 0.19194580749770584,
+      "a_minus_occupancy_50": 0.18515059567443512,
+      "a_minus_raw_mass_25": 0.19502775505647807,
+      "a_minus_raw_mass_50": 0.1879973060042011,
+      "a_minus_effective_mass_25": 0.14170291724797238,
+      "a_minus_effective_mass_50": 0.1409691271314851,
+      "rho_raw_25": 1.8512038647074651,
+      "rho_raw_50": 1.7352348851057837,
+      "rho_effective_25": 1.0487124015725313,
+      "rho_effective_50": 1.0378926022066577,
+      "token_heatmap_l1": 0.11932123888948902,
+      "token_heatmap_js_nats": 0.0028947891534066438
+    }
+  ],
+  "weighting_sensitivity": [
+    {
+      "model_key": "4b",
+      "stage": "healthy",
+      "raw_a_minus_mass_fraction": 0.2511261063633527,
+      "effective_a_minus_mass_fraction": 0.19979121050808027,
+      "raw_a_plus_mass_fraction": 0.24552359552483255,
+      "effective_a_plus_mass_fraction": 0.3056218442974085,
+      "rho_raw": 1.0228186249331523,
+      "rho_effective": 0.6537203221431328,
+      "rho_direction_raw": "above_one",
+      "rho_direction_effective": "below_one"
+    },
+    {
+      "model_key": "4b",
+      "stage": "drift",
+      "raw_a_minus_mass_fraction": 0.289201176725768,
+      "effective_a_minus_mass_fraction": 0.2083128822511015,
+      "raw_a_plus_mass_fraction": 0.19224856627917186,
+      "effective_a_plus_mass_fraction": 0.26158716996751974,
+      "rho_raw": 1.5043086267067778,
+      "rho_effective": 0.7963421228838055,
+      "rho_direction_raw": "above_one",
+      "rho_direction_effective": "below_one"
+    },
+    {
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "raw_a_minus_mass_fraction": 0.36181581964219944,
+      "effective_a_minus_mass_fraction": 0.2851351581028031,
+      "raw_a_plus_mass_fraction": 0.15605497701723992,
+      "effective_a_plus_mass_fraction": 0.1987735632535807,
+      "rho_raw": 2.318515093576467,
+      "rho_effective": 1.4344722378350114,
+      "rho_direction_raw": "above_one",
+      "rho_direction_effective": "above_one"
+    },
+    {
+      "model_key": "4b",
+      "stage": "terminal",
+      "raw_a_minus_mass_fraction": 0.2837533175893161,
+      "effective_a_minus_mass_fraction": 0.25298226524972534,
+      "raw_a_plus_mass_fraction": 0.14657034881375405,
+      "effective_a_plus_mass_fraction": 0.19512369433391283,
+      "rho_raw": 1.9359530756788985,
+      "rho_effective": 1.296522526971019,
+      "rho_direction_raw": "above_one",
+      "rho_direction_effective": "above_one"
+    },
+    {
+      "model_key": "30b",
+      "stage": "healthy",
+      "raw_a_minus_mass_fraction": 0.23982438885087176,
+      "effective_a_minus_mass_fraction": 0.20301434714270755,
+      "raw_a_plus_mass_fraction": 0.17936062689183396,
+      "effective_a_plus_mass_fraction": 0.21085303496099705,
+      "rho_raw": 1.337107218049039,
+      "rho_effective": 0.962823927008025,
+      "rho_direction_raw": "above_one",
+      "rho_direction_effective": "below_one"
+    },
+    {
+      "model_key": "30b",
+      "stage": "drift",
+      "raw_a_minus_mass_fraction": 0.1743041470617083,
+      "effective_a_minus_mass_fraction": 0.14030259357855251,
+      "raw_a_plus_mass_fraction": 0.11717727288196476,
+      "effective_a_plus_mass_fraction": 0.13770141921280055,
+      "rho_raw": 1.4875252066779936,
+      "rho_effective": 1.0188899604711565,
+      "rho_direction_raw": "above_one",
+      "rho_direction_effective": "above_one"
+    },
+    {
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "raw_a_minus_mass_fraction": 0.19502775505647807,
+      "effective_a_minus_mass_fraction": 0.14170291724797238,
+      "raw_a_plus_mass_fraction": 0.10535185171909586,
+      "effective_a_plus_mass_fraction": 0.1351208558566587,
+      "rho_raw": 1.8512038647074651,
+      "rho_effective": 1.0487124015725313,
+      "rho_direction_raw": "above_one",
+      "rho_direction_effective": "above_one"
+    },
+    {
+      "model_key": "30b",
+      "stage": "terminal",
+      "raw_a_minus_mass_fraction": 0.3113392949567607,
+      "effective_a_minus_mass_fraction": 0.21995377797262075,
+      "raw_a_plus_mass_fraction": 0.09181465411376653,
+      "effective_a_plus_mass_fraction": 0.13312710770736333,
+      "rho_raw": 3.3909542867850226,
+      "rho_effective": 1.6522087932392977,
+      "rho_direction_raw": "above_one",
+      "rho_direction_effective": "above_one"
+    }
+  ],
+  "panel_metrics": [
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "response_count",
+      "value": 6400
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "valid_completion_tokens",
+      "value": 8314354
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "a_zero_tokens",
+      "value": 3377668
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "a_zero_fraction",
+      "value": 0.40624539200519966
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "a_nonzero_tokens",
+      "value": 4936686
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "observed_discrete_advantage_levels",
+      "value": 30
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "a_minus_occupancy",
+      "value": 0.33313157855289965
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "a_plus_occupancy",
+      "value": 0.13983611677955615
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "raw_abs_a_minus",
+      "value": 877060.7629571557
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "raw_abs_a_plus",
+      "value": 857493.9305729568
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "raw_a_minus_mass_fraction",
+      "value": 0.2511261063633527
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "raw_a_plus_mass_fraction",
+      "value": 0.24552359552483255
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "effective_a_minus",
+      "value": 601.2560308449974
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "effective_a_plus",
+      "value": 919.7450507181139
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "effective_a_minus_mass_fraction",
+      "value": 0.19979121050808027
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "effective_a_plus_mass_fraction",
+      "value": 0.3056218442974085
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "rho_raw",
+      "value": 1.0228186249331523
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "rho_effective",
+      "value": 0.6537203221431328
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "top5_token_containment",
+      "value": 0.2155617521746372
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "adjacent_persistence_ratio",
+      "value": 2.648869553281022
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "amp_tail_token_fraction",
+      "value": 0.0489896636950118
+    },
+    {
+      "section": "segment",
+      "panel": "d",
+      "model_key": "4b",
+      "stage": "healthy",
+      "metric": "sequence_dilution_abs_mean_lt_0p05",
+      "value": 0.8801463860933212
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "response_count",
+      "value": 6400
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "valid_completion_tokens",
+      "value": 15702795
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "a_zero_tokens",
+      "value": 6367585
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "a_zero_fraction",
+      "value": 0.4055064719370023
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "a_nonzero_tokens",
+      "value": 9335210
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "observed_discrete_advantage_levels",
+      "value": 30
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "a_minus_occupancy",
+      "value": 0.3507265503400566
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "a_plus_occupancy",
+      "value": 0.12307993071393145
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "raw_abs_a_minus",
+      "value": 1929467.8700878322
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "raw_abs_a_plus",
+      "value": 1282627.6708336174
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "raw_a_minus_mass_fraction",
+      "value": 0.289201176725768
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "raw_a_plus_mass_fraction",
+      "value": 0.19224856627917186
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "effective_a_minus",
+      "value": 669.9310330362377
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "effective_a_plus",
+      "value": 841.2603249093576
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "effective_a_minus_mass_fraction",
+      "value": 0.2083128822511015
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "effective_a_plus_mass_fraction",
+      "value": 0.26158716996751974
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "rho_raw",
+      "value": 1.5043086267067778
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "rho_effective",
+      "value": 0.7963421228838055
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "top5_token_containment",
+      "value": 0.2574314323974129
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "adjacent_persistence_ratio",
+      "value": 4.218530300378278
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "amp_tail_token_fraction",
+      "value": 0.0260315091156783
+    },
+    {
+      "section": "segment",
+      "panel": "d",
+      "model_key": "4b",
+      "stage": "drift",
+      "metric": "sequence_dilution_abs_mean_lt_0p05",
+      "value": 0.9651898734177216
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "response_count",
+      "value": 6400
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "valid_completion_tokens",
+      "value": 28707881
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "a_zero_tokens",
+      "value": 11789023
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "a_zero_fraction",
+      "value": 0.4106545864531067
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "a_nonzero_tokens",
+      "value": 16918858
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "observed_discrete_advantage_levels",
+      "value": 30
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "a_minus_occupancy",
+      "value": 0.4432480017268305
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "a_plus_occupancy",
+      "value": 0.09371223518750497
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "raw_abs_a_minus",
+      "value": 4483254.877340168
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "raw_abs_a_plus",
+      "value": 1933675.0878875852
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "raw_a_minus_mass_fraction",
+      "value": 0.36181581964219944
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "raw_a_plus_mass_fraction",
+      "value": 0.15605497701723992
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "effective_a_minus",
+      "value": 886.530714509289
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "effective_a_plus",
+      "value": 618.0187326924448
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "effective_a_minus_mass_fraction",
+      "value": 0.2851351581028031
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "effective_a_plus_mass_fraction",
+      "value": 0.1987735632535807
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "rho_raw",
+      "value": 2.318515093576467
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "rho_effective",
+      "value": 1.4344722378350114
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "top5_token_containment",
+      "value": 0.2567885444808478
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "adjacent_persistence_ratio",
+      "value": 3.976265271529421
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "amp_tail_token_fraction",
+      "value": 0.0275089104650924
+    },
+    {
+      "section": "segment",
+      "panel": "d",
+      "model_key": "4b",
+      "stage": "pre-terminal",
+      "metric": "sequence_dilution_abs_mean_lt_0p05",
+      "value": 0.9722222222222222
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "response_count",
+      "value": 6400
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "valid_completion_tokens",
+      "value": 19879241
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "a_zero_tokens",
+      "value": 11676484
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "a_zero_fraction",
+      "value": 0.5873707150086867
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "a_nonzero_tokens",
+      "value": 8202757
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "observed_discrete_advantage_levels",
+      "value": 30
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "a_minus_occupancy",
+      "value": 0.39879786759500496
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "a_plus_occupancy",
+      "value": 0.09054797063962763
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "raw_abs_a_minus",
+      "value": 1610543.4089420736
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "raw_abs_a_plus",
+      "value": 831912.4203861654
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "raw_a_minus_mass_fraction",
+      "value": 0.2837533175893161
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "raw_a_plus_mass_fraction",
+      "value": 0.14657034881375405
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "effective_a_minus",
+      "value": 429.3683809383372
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "effective_a_plus",
+      "value": 331.1692408009621
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "effective_a_minus_mass_fraction",
+      "value": 0.25298226524972534
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "effective_a_plus_mass_fraction",
+      "value": 0.19512369433391283
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "rho_raw",
+      "value": 1.9359530756788985
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "rho_effective",
+      "value": 1.296522526971019
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "top5_token_containment",
+      "value": 0.151349813277574
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "adjacent_persistence_ratio",
+      "value": 1.8365575373423009
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "amp_tail_token_fraction",
+      "value": 0.3153123171422304
+    },
+    {
+      "section": "segment",
+      "panel": "d",
+      "model_key": "4b",
+      "stage": "terminal",
+      "metric": "sequence_dilution_abs_mean_lt_0p05",
+      "value": 0.0260764099454214
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "response_count",
+      "value": 6400
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "valid_completion_tokens",
+      "value": 6499841
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "a_zero_tokens",
+      "value": 2242788
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "a_zero_fraction",
+      "value": 0.3450527482133794
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "a_nonzero_tokens",
+      "value": 4257053
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "observed_discrete_advantage_levels",
+      "value": 30
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "a_minus_occupancy",
+      "value": 0.2597985038006339
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "a_plus_occupancy",
+      "value": 0.1591974542012984
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "raw_abs_a_minus",
+      "value": 772933.8493082821
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "raw_abs_a_plus",
+      "value": 578064.2261703312
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "raw_a_minus_mass_fraction",
+      "value": 0.23982438885087176
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "raw_a_plus_mass_fraction",
+      "value": 0.17936062689183396
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "effective_a_minus",
+      "value": 614.4040669595535
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "effective_a_plus",
+      "value": 638.1271276346589
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "effective_a_minus_mass_fraction",
+      "value": 0.20301434714270755
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "effective_a_plus_mass_fraction",
+      "value": 0.21085303496099705
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "rho_raw",
+      "value": 1.337107218049039
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "rho_effective",
+      "value": 0.962823927008025
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "top5_token_containment",
+      "value": 0.2009631633648834
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "adjacent_persistence_ratio",
+      "value": 2.6232524505813366
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "amp_tail_token_fraction",
+      "value": 0.0479141094266219
+    },
+    {
+      "section": "segment",
+      "panel": "d",
+      "model_key": "30b",
+      "stage": "healthy",
+      "metric": "sequence_dilution_abs_mean_lt_0p05",
+      "value": 0.9963350785340314
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "response_count",
+      "value": 6400
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "valid_completion_tokens",
+      "value": 7318568
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "a_zero_tokens",
+      "value": 2956825
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "a_zero_fraction",
+      "value": 0.4040168787117917
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "a_nonzero_tokens",
+      "value": 4361743
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "observed_discrete_advantage_levels",
+      "value": 30
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "a_minus_occupancy",
+      "value": 0.1772605584510596
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "a_plus_occupancy",
+      "value": 0.10785756978345583
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "raw_abs_a_minus",
+      "value": 602427.8277991414
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "raw_abs_a_plus",
+      "value": 404986.6349118948
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "raw_a_minus_mass_fraction",
+      "value": 0.1743041470617083
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "raw_a_plus_mass_fraction",
+      "value": 0.11717727288196476
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "effective_a_minus",
+      "value": 405.0406058620042
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "effective_a_plus",
+      "value": 397.53125614733193
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "effective_a_minus_mass_fraction",
+      "value": 0.14030259357855251
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "effective_a_plus_mass_fraction",
+      "value": 0.13770141921280055
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "rho_raw",
+      "value": 1.4875252066779936
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "rho_effective",
+      "value": 1.0188899604711565
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "top5_token_containment",
+      "value": 0.2214875535533326
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "adjacent_persistence_ratio",
+      "value": 3.279548580821987
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "amp_tail_token_fraction",
+      "value": 0.0381533775962074
+    },
+    {
+      "section": "segment",
+      "panel": "d",
+      "model_key": "30b",
+      "stage": "drift",
+      "metric": "sequence_dilution_abs_mean_lt_0p05",
+      "value": 0.9927404718693283
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "response_count",
+      "value": 6400
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "valid_completion_tokens",
+      "value": 8313013
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "a_zero_tokens",
+      "value": 3085574
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "a_zero_fraction",
+      "value": 0.371173965444298
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "a_nonzero_tokens",
+      "value": 5227439
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "observed_discrete_advantage_levels",
+      "value": 30
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "a_minus_occupancy",
+      "value": 0.19194580749770584
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "a_plus_occupancy",
+      "value": 0.10229043323126295
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "raw_abs_a_minus",
+      "value": 798318.4865233302
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "raw_abs_a_plus",
+      "value": 431242.88023754954
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "raw_a_minus_mass_fraction",
+      "value": 0.19502775505647807
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "raw_a_plus_mass_fraction",
+      "value": 0.10535185171909586
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "effective_a_minus",
+      "value": 413.63531162073474
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "effective_a_plus",
+      "value": 394.4220655734534
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "effective_a_minus_mass_fraction",
+      "value": 0.14170291724797238
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "effective_a_plus_mass_fraction",
+      "value": 0.1351208558566587
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "rho_raw",
+      "value": 1.8512038647074651
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "rho_effective",
+      "value": 1.0487124015725313
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "top5_token_containment",
+      "value": 0.2501238021598047
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "adjacent_persistence_ratio",
+      "value": 3.7773195868603815
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "amp_tail_token_fraction",
+      "value": 0.035943415110018
+    },
+    {
+      "section": "segment",
+      "panel": "d",
+      "model_key": "30b",
+      "stage": "pre-terminal",
+      "metric": "sequence_dilution_abs_mean_lt_0p05",
+      "value": 0.7994029850746268
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "response_count",
+      "value": 6400
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "valid_completion_tokens",
+      "value": 14508487
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "a_zero_tokens",
+      "value": 5035848
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "a_zero_fraction",
+      "value": 0.3470967027781739
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "a_nonzero_tokens",
+      "value": 9472639
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "observed_discrete_advantage_levels",
+      "value": 30
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "a_minus_occupancy",
+      "value": 0.36114983374749104
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "a_plus_occupancy",
+      "value": 0.07600152396813602
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "raw_abs_a_minus",
+      "value": 2284560.749386728
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "raw_abs_a_plus",
+      "value": 673722.0723646879
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "raw_a_minus_mass_fraction",
+      "value": 0.3113392949567607
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "raw_a_plus_mass_fraction",
+      "value": 0.09181465411376653
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "effective_a_minus",
+      "value": 744.2684697925527
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "effective_a_plus",
+      "value": 450.4687741876438
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "effective_a_minus_mass_fraction",
+      "value": 0.21995377797262075
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "effective_a_plus_mass_fraction",
+      "value": 0.13312710770736333
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "rho_raw",
+      "value": 3.3909542867850226
+    },
+    {
+      "section": "stage_audit",
+      "panel": "a/b",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "rho_effective",
+      "value": 1.6522087932392977
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "top5_token_containment",
+      "value": 0.1809421904030038
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "adjacent_persistence_ratio",
+      "value": 1.4543446807559637
+    },
+    {
+      "section": "segment",
+      "panel": "c",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "amp_tail_token_fraction",
+      "value": 0.2291495249149742
+    },
+    {
+      "section": "segment",
+      "panel": "d",
+      "model_key": "30b",
+      "stage": "terminal",
+      "metric": "sequence_dilution_abs_mean_lt_0p05",
+      "value": 0.0035971223021582
+    }
+  ]
+}
