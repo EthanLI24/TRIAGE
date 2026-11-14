@@ -115,7 +115,8 @@ GPUs, batch 256, and a 16,384-token response limit. Use `MODEL=qwen3-30B-A3B`
 for MoE; `USE_TIS=1` with `examples/train_nvfp4.sh` gives the NVFP4+TIS baseline
 (it is already the default for `train_triage.sh`); and `START_LOCAL_RAY=1`
 starts a local Ray head. See [docs/TRAINING.md](docs/TRAINING.md) for
-checkpoints, resume, evaluation, and runtime setup.
+checkpoints, resume, evaluation, and runtime setup. The default rollout budget is
+600 for 4B and 1,700 for 30B; override with `NUM_ROLLOUT`.
 
 ### Gate and Repair configuration
 
@@ -125,8 +126,9 @@ in shell.
 
 | Control | Setting | Default / choices |
 |---|---|---|
-| Gate scope | `TRIAGE_GATE_SCOPE` | `whole`; choose `q3` for negative-gap tokens |
-| Repair scope | `TRIAGE_REPAIR_SCOPE` | `whole`, `adv_positive`, `q2`; default `whole` |
+| Gate scope | `TRIAGE_GATE_SCOPE` | Default `q3` for negative-gap tokens; also supports `whole` |
+| Repair scope | `TRIAGE_REPAIR_SCOPE` | `whole`, `adv_positive`, `q2`; default `adv_positive` |
+| Recentering | `TRIAGE_RECENTER_ENABLE` | `0` (off) |
 | Repair strength | `TRIAGE_REPAIR_COEF` | `0.015` |
 | Repair start | `TRIAGE_REPAIR_START_STEP` | `0`, inclusive |
 
@@ -172,7 +174,6 @@ Throughput and full benchmark tables: [benchmarks/README.md](benchmarks/README.m
 Planned, in rough priority order:
 
 - Per-ablation numeric summaries and a standalone final-checkpoint evaluation runner.
-- Per-response weighted-mean normalization alignment (this branch currently uses global weighted-token normalization; see [docs/PAPER_AND_CODE.md](docs/PAPER_AND_CODE.md)).
 - Upstreaming the Slime/SGLang compatibility patches.
 - Reference checkpoints for the reported runs.
 

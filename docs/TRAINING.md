@@ -107,8 +107,9 @@ variables for the documented controls. Passing duplicate CLI options is handled
 by the installed Slime parser and is not a substitute for inspecting dry-run output.
 
 Shared defaults: 1 node × 8 GPUs, 16 prompts × 16 responses, batch 256,
-1,200 rollouts, 16,384 response tokens, TP/PP/CP=1, Adam at 1e-6,
+16,384 response tokens, TP/PP/CP=1, Adam at 1e-6,
 PPO clip [0.8, 1.28], one optimizer update and weight synchronization per rollout.
+The rollout budget defaults to 600 for 4B and 1,700 for 30B; override with `NUM_ROLLOUT`.
 CPU optimizer offload is enabled, matching the reference script; disable with
 `OPTIMIZER_CPU_OFFLOAD=0` when appropriate for your hardware.
 
@@ -121,33 +122,32 @@ Batch invariant: `ROLLOUT_BATCH_SIZE * N_SAMPLES_PER_PROMPT = GLOBAL_BATCH_SIZE`
 ## Algorithm defaults and overrides
 
 `policy_extension/triage_config.py` is the single source of truth. The TRIAGE
-entry point only activates Gate and Repair. Resolved defaults and explicit overrides
+entry point enables TIS, Gate, and Repair from step 0, with recentering off. Resolved defaults and explicit overrides
 are serialized as JSON and forwarded to remote actors through `--train-env-vars`.
 Unknown `TRIAGE_*` keys and obsolete `GP95_*` overrides are rejected.
 
 | Setting | Code default |
 |---|---|
-| Group recentering | Enabled |
-| Gate segment size / scope | 64 / `whole` |
+| Group recentering | Disabled |
+| Gate segment size / scope | 64 / `q3` |
 | Gate negative/severe weights | 0.3 / 0.1 |
 | Gate tail full count | 2 |
 | Repair coefficient | **0.015** |
-| Repair scope | `whole` (segment-wide Repair) |
+| Repair scope | `adv_positive` |
 | Repair start step | 0 |
 | Repair segment size / target / beta | 128 / -0.03 / 0.022360679775 |
 | Calibration | Disabled; see [CALIBRATION](CALIBRATION.md) |
 
 ```bash
 TRIAGE_REPAIR_SCOPE=adv_positive TRIAGE_GATE_SCOPE=q3 \
-TRIAGE_RECENTER_ENABLE=0 TRIAGE_REPAIR_START_STEP=300 \
+TRIAGE_RECENTER_ENABLE=0 TRIAGE_REPAIR_START_STEP=0 \
 bash examples/train_triage.sh
 ```
 
-This explicitly selects positive-advantage Repair, Q3 gating, native GRPO advantages, and a delayed
-Repair start. `q2` selects Q2 Repair. The default coefficient stays 0.015 unless
-`TRIAGE_REPAIR_COEF` is set. These examples are configurable training recipes,
-not an assertion that every default matches every reported experiment; see
-[PAPER_AND_CODE](PAPER_AND_CODE.md).
+This selects positive-advantage Repair from step 0, Q3 gating, and native GRPO advantages.
+`TRIAGE_REPAIR_START_STEP` controls Repair activation; `LOAD_DIR` and `CKPT_STEP`
+select a checkpoint for resuming. `q2` selects Q2 Repair. The coefficient remains
+0.015 unless `TRIAGE_REPAIR_COEF` is set. See [PAPER_AND_CODE](PAPER_AND_CODE.md).
 
 ## Patches and preflight
 

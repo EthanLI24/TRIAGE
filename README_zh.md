@@ -113,6 +113,7 @@ batch 256、最大回答长度 16,384。`MODEL=qwen3-30B-A3B` 选择 MoE；
 `USE_TIS=1` 配合 `examples/train_nvfp4.sh` 即为 NVFP4+TIS baseline
 （`train_triage.sh` 已默认开启）；`START_LOCAL_RAY=1` 启动本地 Ray head。
 checkpoint、续训、评估与运行时配置见 [docs/TRAINING.md](docs/TRAINING.md)。
+默认 rollout 预算为 4B 600 步、30B 1,700 步，可通过 `NUM_ROLLOUT` 覆盖。
 
 ### Gate 与 Repair 配置
 
@@ -121,8 +122,9 @@ checkpoint、续训、评估与运行时配置见 [docs/TRAINING.md](docs/TRAINI
 
 | 控制项 | 参数 | 默认值／可选值 |
 |---|---|---|
-| Gate 范围 | `TRIAGE_GATE_SCOPE` | 默认 `whole`；`q3` 仅选择负 gap token |
-| Repair 范围 | `TRIAGE_REPAIR_SCOPE` | `whole`、`adv_positive`、`q2`，默认 `whole` |
+| Gate 范围 | `TRIAGE_GATE_SCOPE` | 默认 `q3`，仅选择负 gap token；也支持 `whole` |
+| Repair 范围 | `TRIAGE_REPAIR_SCOPE` | `whole`、`adv_positive`、`q2`，默认 `adv_positive` |
+| Recentering | `TRIAGE_RECENTER_ENABLE` | `0`（关闭） |
 | Repair 强度 | `TRIAGE_REPAIR_COEF` | `0.015` |
 | Repair 起始步 | `TRIAGE_REPAIR_START_STEP` | `0`，包含边界 |
 
@@ -167,7 +169,6 @@ TRIAGE_CALIBRATION_PATH=/shared/calibration/gate.json bash examples/train_triage
 按大致优先级规划：
 
 - 逐项消融的数值汇总，以及独立的 final-checkpoint 评估入口。
-- 按 response 加权均值归一化的对齐（本分支当前使用全局 weighted-token 归一化，见 [docs/PAPER_AND_CODE.md](docs/PAPER_AND_CODE.md)）。
 - 将 Slime/SGLang 兼容性补丁上游化。
 - 发布报告运行的参考 checkpoint。
 

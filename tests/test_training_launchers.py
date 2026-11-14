@@ -39,9 +39,13 @@ class TrainingLauncherTest(unittest.TestCase):
                 self.assertNotIn("--ckpt-step", cmd)
                 if mode == "triage":
                     self.assertEqual(env["TRIAGE_REPAIR_COEF"], "0.015")
-                    self.assertEqual(env["TRIAGE_REPAIR_SCOPE"], "whole")
+                    self.assertEqual(env["TRIAGE_REPAIR_SCOPE"], "adv_positive")
                     self.assertEqual(env["TRIAGE_REPAIR_START_STEP"], "0")
                     self.assertEqual(env["TRIAGE_GATE_ENABLE"], "1")
+                    self.assertEqual(env["TRIAGE_GATE_SCOPE"], "q3")
+                    self.assertEqual(env["TRIAGE_REPAIR_ENABLE"], "1")
+                    self.assertEqual(env["TRIAGE_RECENTER_ENABLE"], "0")
+                    self.assertNotIn("--custom-reward-post-process-path", cmd)
                 else:
                     self.assertFalse(any(k.startswith("TRIAGE_") for k in env))
                 if mode == "bf16":
@@ -74,9 +78,35 @@ class TrainingLauncherTest(unittest.TestCase):
 
     def test_30b_uses_expert_parallelism_and_optional_routing(self):
         cmd = command(launch("triage", MODEL="qwen3-30B-A3B"))
+        env = json.loads(cmd[cmd.index("--train-env-vars") + 1])
+        self.assertEqual(env["TRIAGE_GATE_SCOPE"], "q3")
+        self.assertEqual(env["TRIAGE_REPAIR_SCOPE"], "adv_positive")
+        self.assertEqual(env["TRIAGE_RECENTER_ENABLE"], "0")
+        self.assertEqual(env["TRIAGE_REPAIR_START_STEP"], "0")
+        self.assertNotIn("--custom-reward-post-process-path", cmd)
         self.assertEqual(cmd[cmd.index("--expert-model-parallel-size") + 1], "8")
         self.assertIn("--use-rollout-routing-replay", cmd)
         self.assertNotIn("--use-rollout-routing-replay", command(launch("triage", MODEL="qwen3-30B-A3B", R3="0")))
+
+    def test_model_budgets_and_explicit_overrides(self):
+        for model, budget in (("qwen3-4B", "600"), ("qwen3-30B-A3B", "1700")):
+            for mode in ("bf16", "nvfp4", "triage"):
+                with self.subTest(model=model, mode=mode):
+                    cmd = command(launch(mode, MODEL=model, NUM_ROLLOUT=""))
+                    self.assertEqual(cmd[cmd.index("--num-rollout") + 1], budget)
+                    cmd = command(launch(mode, MODEL=model, NUM_ROLLOUT="20"))
+                    self.assertEqual(cmd[cmd.index("--num-rollout") + 1], "20")
+
+    def test_algorithm_overrides_reach_training_actors(self):
+        cmd = command(launch("triage", TRIAGE_GATE_SCOPE="whole", TRIAGE_REPAIR_SCOPE="whole",
+                             TRIAGE_RECENTER_ENABLE="1", TRIAGE_REPAIR_START_STEP="300"))
+        env = json.loads(cmd[cmd.index("--train-env-vars") + 1])
+        self.assertEqual(env["TRIAGE_GATE_SCOPE"], "whole")
+        self.assertEqual(env["TRIAGE_REPAIR_SCOPE"], "whole")
+        self.assertEqual(env["TRIAGE_RECENTER_ENABLE"], "1")
+        self.assertEqual(env["TRIAGE_REPAIR_START_STEP"], "300")
+        self.assertEqual(cmd[cmd.index("--custom-reward-post-process-path") + 1],
+                         "TRIAGE.triage_group_recenter_reward_postprocess")
 
     def test_invalid_combinations_fail_before_launch(self):
         for overrides in ({"GLOBAL_BATCH_SIZE": "255"}, {"R3": "1"}, {"CP": "2"},

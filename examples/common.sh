@@ -8,6 +8,7 @@ Usage: bash examples/train_{bf16,nvfp4,triage}.sh [extra Slime arguments]
 
 DRY_RUN=1 prints the complete command without checking/starting the GPU stack.
 MODEL=qwen3-4B (default) or qwen3-30B-A3B
+NUM_ROLLOUT: 600 for qwen3-4B, 1700 for qwen3-30B-A3B; accepts overrides
 SLIME_ROOT, SGLANG_ROOT, MEGATRON_ROOT, MINITE_ROOT: installed source trees
 HF_CHECKPOINT, INITIAL_CHECKPOINT, PROMPT_DATA, SAVE_DIR: model/data/output paths
 LOAD_DIR and optional CKPT_STEP: resume an existing training run
@@ -19,10 +20,10 @@ HELP
   fi
   local mode="${TRAINING_MODE:?Select a training configuration}" model="${MODEL:-qwen3-4B}"
   case "$mode" in bf16|nvfp4|triage) ;; *) echo "Invalid TRAINING_MODE: $mode" >&2; return 2;; esac
-  local model_name moe=0
+  local model_name moe=0 default_num_rollout=600
   case "$model" in
     qwen3-4B) model_name=Qwen3-4B-Base ;;
-    qwen3-30B-A3B) model_name=Qwen3-30B-A3B-Base; moe=1 ;;
+    qwen3-30B-A3B) model_name=Qwen3-30B-A3B-Base; moe=1; default_num_rollout=1700 ;;
     *) echo "MODEL must be qwen3-4B or qwen3-30B-A3B" >&2; return 2 ;;
   esac
   local precision=nvfp4
@@ -109,7 +110,7 @@ HELP
     --prompt-data "$PROMPT_DATA" --input-key "${INPUT_KEY:-prompt}" --label-key "${LABEL_KEY:-label}"
     --apply-chat-template --rollout-shuffle --rm-type "${RM_TYPE:-math}"
     --seed "${TRAIN_SEED:-42}" --rollout-seed "${ROLLOUT_SEED:-42}"
-    --num-rollout "${NUM_ROLLOUT:-1200}" --rollout-batch-size "$ROLLOUT_BATCH_SIZE"
+    --num-rollout "${NUM_ROLLOUT:-$default_num_rollout}" --rollout-batch-size "$ROLLOUT_BATCH_SIZE"
     --n-samples-per-prompt "$N_SAMPLES_PER_PROMPT" --global-batch-size "$GLOBAL_BATCH_SIZE"
     --rollout-max-response-len "${ROLLOUT_MAX_RESPONSE_LEN:-16384}"
     --rollout-temperature "${ROLLOUT_TEMPERATURE:-1.0}" --balance-data

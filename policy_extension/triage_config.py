@@ -32,7 +32,7 @@ def _scope(value):
     return value.strip().lower()
 
 
-RECENTER_ENABLE = _env("TRIAGE_RECENTER_ENABLE", 1, _boolean)
+RECENTER_ENABLE = _env("TRIAGE_RECENTER_ENABLE", 0, _boolean)
 ADV_QUANTILE = _env("TRIAGE_ADV_QUANTILE", "0.70", float)
 GATE_ENABLE = _env("TRIAGE_GATE_ENABLE", 0, _boolean)
 REPAIR_ENABLE = _env("TRIAGE_REPAIR_ENABLE", 0, _boolean)
@@ -60,14 +60,14 @@ GATE_BAD_DELTA = _env("TRIAGE_GATE_BAD_DELTA", "-6.0", float)
 GATE_BAD_COUNT_FULL = _env("TRIAGE_GATE_BAD_COUNT_FULL", "2", int)
 GATE_NEG_ADV_MAX = _env("TRIAGE_GATE_NEG_ADV_MAX", "0.0", float)
 GATE_SCOPES = frozenset({"q3", "whole"})
-GATE_SCOPE = _env("TRIAGE_GATE_SCOPE", "whole", _scope)
+GATE_SCOPE = _env("TRIAGE_GATE_SCOPE", "q3", _scope)
 REPAIR_SIZE = _env("TRIAGE_REPAIR_SIZE", "128", int)
 REPAIR_COEF = _env("TRIAGE_REPAIR_COEF", "0.015", float)
 REPAIR_START_STEP = _env("TRIAGE_REPAIR_START_STEP", "0", int)
 REPAIR_HUBER_BETA = _env("TRIAGE_REPAIR_HUBER_BETA", "0.022360679775", float)
 REPAIR_TARGET = _env("TRIAGE_REPAIR_TARGET", "-0.03", float)
 REPAIR_SCOPES = frozenset({"whole", "adv_positive", "q2"})
-REPAIR_SCOPE = _env("TRIAGE_REPAIR_SCOPE", "whole", _scope)
+REPAIR_SCOPE = _env("TRIAGE_REPAIR_SCOPE", "adv_positive", _scope)
 
 if ADV_ALPHA < 0:
     raise ValueError(f"TRIAGE_ADV_ALPHA must be non-negative, got {ADV_ALPHA}")
