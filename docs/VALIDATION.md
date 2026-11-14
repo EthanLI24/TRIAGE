@@ -24,7 +24,7 @@ modules without `PYTHONPATH`.
 
 The CPU test suite mocks the Slime/Megatron interfaces. Coverage includes:
 
-- Loss values, gradients, masks, and partition-invariant token/Repair normalization.
+- Loss values, gradients, masks, and partition-invariant response/Repair normalization.
 - Gate weights, Repair scopes, and inclusive activation boundaries.
 - Frozen calibration, reference-data validation, non-overwriting export, and loading
   profiles produced by the previous calibration command.

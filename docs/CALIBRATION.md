@@ -3,7 +3,7 @@
 Calibration is disabled by default. The standard Gate path retains fixed mean-gap
 tiers and the deep-token count ramp. Setting `TRIAGE_CALIBRATION_PATH` selects
 an alternative continuous gate with frozen reference thresholds. Repair, its scope,
-and the global weighted-token reduction are unchanged.
+and the response-mean reduction are unchanged.
 
 This optional path adapts an earlier development variant of the segment
 gate's calibration: negative-depth quantiles and an empirical shared-tail

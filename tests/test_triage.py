@@ -1,4 +1,4 @@
-"""CPU regressions for advantage balancing, Gate, Repair, and global weighted-token normalization."""
+"""CPU regressions for advantage balancing, Gate, Repair, and weighted response means."""
 
 import sys
 import types
@@ -365,7 +365,7 @@ class TriageLossTest(unittest.TestCase):
         )
         self.assertTrue(torch.all(current[0].grad != 0))
         self.assertTrue(torch.equal(current[1].grad, torch.zeros(2)))
-        # Megatron divides accumulated metric numerators by global weight units.
+        # Megatron divides accumulated metric numerators by the global response count.
         self.assertTrue(torch.allclose(metrics["triage_repair_loss"] / normalizer, penalty / 2.0))
         self.assertAlmostEqual(
             (metrics["triage_repair_active_segment_fraction"] / normalizer).item(),
@@ -551,7 +551,7 @@ class TriageLossTest(unittest.TestCase):
         )
         self.assertEqual(weight_units, 55 + 63 * 100)
 
-    def test_token_level_custom_loss_uses_one_global_mw_denominator(self):
+    def test_custom_loss_matches_paper_response_mean_and_gradients(self):
         triage.GATE_ENABLE = True
         triage.REPAIR_ENABLE = False
         triage.GATE_SCOPE = "whole"
@@ -561,13 +561,14 @@ class TriageLossTest(unittest.TestCase):
             "active_n": 2,
             "global_valid_segments": 2,
             "global_token_count": 6,
-            "global_token_weight_units": 460,
+            "global_token_weight_units": 440,
             "dp_world_size": 1,
             "horizon": 20480.0,
         }
 
         current = [torch.zeros(2, requires_grad=True), torch.zeros(4, requires_grad=True)]
-        token_policy_loss = torch.tensor([[1.0, 3.0, 0.0, 0.0], [2.0, 4.0, 6.0, 8.0]])
+        token_policy_loss = torch.tensor([[1.0, 3.0, 0.0, 0.0], [2.0, 4.0, 6.0, 8.0]],
+                                         requires_grad=True)
         fake_loss_module = types.ModuleType("slime.backends.megatron_utils.loss")
         fake_loss_module.get_log_probs_and_entropy = lambda *args, **kwargs: (
             None,
@@ -588,7 +589,7 @@ class TriageLossTest(unittest.TestCase):
             "total_lengths": [3, 5],
             "loss_masks": [torch.ones(2), torch.ones(4)],
             triage.TOKEN_WEIGHT_KEY: [
-                torch.tensor([30, 30], dtype=torch.int32),
+                torch.tensor([10, 30], dtype=torch.int32),
                 torch.tensor([100, 100, 100, 100], dtype=torch.int32),
             ],
         }
@@ -614,13 +615,14 @@ class TriageLossTest(unittest.TestCase):
                 args, batch, torch.zeros(1, requires_grad=True), lambda values: values.sum()
             )
 
-        expected = (
-            30 * 1.0 + 30 * 3.0 + 100 * 2.0 + 100 * 4.0 + 100 * 6.0 + 100 * 8.0
-        ) / 460
+        expected = ((0.1 * 1.0 + 0.3 * 3.0) / 0.4 + (2.0 + 4.0 + 6.0 + 8.0) / 4) / 2
         self.assertEqual(normalizer.dtype, torch.int32)
-        self.assertEqual(normalizer.item(), 460)
+        self.assertEqual(normalizer.item(), 2)
         self.assertAlmostEqual((numerator / normalizer).item(), expected, places=6)
         self.assertAlmostEqual((metrics["pg_loss"] / normalizer).item(), expected, places=6)
+        (numerator / normalizer).backward()
+        torch.testing.assert_close(token_policy_loss.grad,
+                                   torch.tensor([[0.125, 0.375, 0.0, 0.0], [0.125] * 4]))
 
     def test_custom_loss_applies_stock_tis_and_reports_stock_metrics(self):
         triage.GATE_ENABLE = False
@@ -688,8 +690,8 @@ class TriageLossTest(unittest.TestCase):
                 args, batch, torch.zeros(1, requires_grad=True), lambda values: values.sum()
             )
 
-        self.assertEqual(normalizer.item(), 400)
-        self.assertAlmostEqual((loss / normalizer).item(), 5.5 / 4)
+        self.assertEqual(normalizer.item(), 2)
+        self.assertAlmostEqual((loss / normalizer).item(), (0.5 + 5.0 / 3) / 2, places=6)
         self.assertTrue(torch.allclose(metrics["pg_loss"], loss))
         for key, expected in {"tis": 7.5 / 4, "tis_clipfrac": 1 / 4,
                               "tis_abs": 4.5 / 4, "ois": 3.75 / 4,

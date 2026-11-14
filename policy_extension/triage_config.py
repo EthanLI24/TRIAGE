@@ -38,8 +38,7 @@ GATE_ENABLE = _env("TRIAGE_GATE_ENABLE", 0, _boolean)
 REPAIR_ENABLE = _env("TRIAGE_REPAIR_ENABLE", 0, _boolean)
 
 # Gate includes the discrete weights 1.0/0.3/0.1 and the Tail-N2 midpoint 0.55.
-# Integer hundredths preserve every supported weight exactly while letting
-# Megatron retain an integer token-normalizer accumulator.
+# Integer hundredths preserve every supported weight exactly within each response.
 TOKEN_WEIGHT_SCALE = 100
 TOKEN_WEIGHT_KEY = "triage_token_weight_units"
 

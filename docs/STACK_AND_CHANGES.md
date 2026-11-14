@@ -35,7 +35,7 @@ activated by the TRIAGE entry point. See [TRAINING](TRAINING.md) for controls,
 optional frozen-reference Gate.
 
 The token-normalizer adapter forwards per-sample integer weights and accumulates
-one global weighted-token denominator. Repair is scaled to retain its global
+weighted response means with a global response-count denominator. Repair retains its global
 valid-segment mean. This adapter is required only by the TRIAGE mode.
 
 The four R3 source patches live in `patches/slime/` and `patches/sglang/`

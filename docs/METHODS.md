@@ -30,21 +30,20 @@ weights. Non-negative-advantage segments retain weight one.
 
 The reported experiments use `q3`. Gate decisions are detached and materialized
 before micro-batching. Integer hundredths preserve the fixed-gate weights
-exactly and allow the runtime to accumulate an integer weighted-token
-normalizer.
+exactly within each response.
 
 This branch computes
 
 $$
 L_{\mathrm{PG}} =
-\frac{\sum_{i,t}m_{i,t}w_{i,t}\ell^{\mathrm{PPO/TIS}}_{i,t}}
-     {\sum_{i,t}m_{i,t}w_{i,t}}.
+\frac{1}{N}\sum_i
+\frac{\sum_t m_{i,t}w_{i,t}\ell^{\mathrm{PPO/TIS}}_{i,t}}
+     {\sum_t m_{i,t}w_{i,t}}.
 $$
 
-The sum is over the complete optimizer update, including all DP ranks and
-micro-batches. An alternative reduction normalizes within each response before
-taking the response mean; these reductions are different, and the difference is
-documented in [PAPER_AND_CODE](PAPER_AND_CODE.md).
+Each response contributes its weighted mean with equal outer weight. `N` counts
+responses across the complete optimizer update, including all DP ranks and
+micro-batches, matching paper Eqs. 16--17.
 
 ## Repair
 
@@ -73,7 +72,7 @@ Penalties are included only for segments with selected tokens. The denominator
 counts **all valid Repair segments**, including unselected and inactive
 segments.
 
-The loss adapts the local Repair numerator to the global weighted-token outer
+The loss adapts the local Repair numerator to the global response-count outer
 normalizer, so accumulation recovers one global valid-segment mean. The Repair
 coefficient is zero before `TRIAGE_REPAIR_START_STEP` and active from the boundary
 onward. Diagnostics are still computed before activation.

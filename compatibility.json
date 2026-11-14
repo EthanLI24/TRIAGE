@@ -33,14 +33,14 @@
     }
   },
   "overlay_sha256": {
-    "policy_extension/TRIAGE.py": "487a1080cbdc5c16c034ce32e1cb3b275614d4b44b05a9149fcc97b9ea4dbb74",
+    "policy_extension/TRIAGE.py": "abc97dbb43885ab90008a24b4c7cb935eca9a43a477a55fe792bc52cec111f1f",
     "patches/slime/patch_tokenmean_custom_normalizer.py": "4ab63a9ff78e45eb8b3776f1d129bbb0ac605cc863554d7661ff2061d08014ab",
     "scripts/apply_patches.sh": "a259e652215420d4374f6d4c682a47da80e5307119771c5e75aaa53606156186",
     "patches/slime/patch_routing_replay_indices.py": "545b2c9058eda502835f20b9b6345f584f561b628554ed82200c12475e45df6a",
     "patches/sglang/patch_sglang_r3_force_return.py": "3259b703a768c8cfc40b8c6ff341af54b8193aeb52ca420b561d1346fe9a9286",
     "patches/sglang/patch_sglang_r3_bypassed_topk.py": "9059a55a0ec854427d1e3fd02667cbb8c8517844676b9f537a2c3765029407b7",
     "patches/slime/patch_slime_r3_route_validation.py": "6c4ce2d43b73b21562d84c57bee4661393192da3e63d6d1066f080b057387204",
-    "policy_extension/triage_config.py": "784fabda5e8681c149feff7d2259f9c3fa5529d61a4fc397b2ec9e5650fdbac4",
+    "policy_extension/triage_config.py": "5bf6cfd39caa42f2c07f68f930d997380b9a85ee735ff0e214f2148d913e83ef",
     "policy_extension/triage_calibration.py": "dd23355c498d00c0fd2aec3d0eaeef95b2693bcca496fac3a4f41dd250bb409b"
   },
   "measurement_environments": {

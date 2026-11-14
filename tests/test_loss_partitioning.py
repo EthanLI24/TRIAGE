@@ -11,7 +11,8 @@ import torch
 import TRIAGE as triage
 
 
-def evaluate(module, *, scope, segment_scope, partition, step=3, repair_enabled=True):
+def evaluate(module, *, scope, segment_scope, partition, step=3, repair_enabled=True,
+             dp_partition=(3,)):
     """Run one synthetic update through the materializer and custom loss."""
     generator = torch.Generator().manual_seed(17)
     lengths = [5, 129, 258]
@@ -57,11 +58,20 @@ def evaluate(module, *, scope, segment_scope, partition, step=3, repair_enabled=
                     REPAIR_ENABLE=repair_enabled, REPAIR_SCOPE=scope,
                     REPAIR_START_STEP=3, _GLOBAL_LENGTH_REFS=None)
     with mock.patch.multiple(module, **controls), mock.patch.dict(sys.modules, modules):
-        units, token_count, weight_units = module._materialize_token_weight_units(rollout)
-        active_lengths, total_n, segments = module._rollout_length_metadata(rollout)
+        units, _, _ = module._materialize_token_weight_units(rollout)
+        gathered = []
+        offset = 0
+        for count in dp_partition:
+            stop = offset + count
+            shard = {key: value[offset:stop] for key, value in rollout.items()}
+            active_lengths, total_n, segments = module._rollout_length_metadata(shard)
+            _, token_count, weight_units = module._materialize_token_weight_units(shard)
+            gathered.append(dict(lengths=active_lengths, total_n=total_n, valid_segments=segments,
+                                 token_count=token_count, token_weight_units=weight_units))
+            offset = stop
+        assert offset == len(lengths)
         module._GLOBAL_LENGTH_REFS = module._aggregate_length_metadata(
-            [dict(lengths=active_lengths, total_n=total_n, valid_segments=segments,
-                  token_count=token_count, token_weight_units=weight_units)],
+            gathered,
             expected_global_batch=3, horizon=512, rollout_id=step,
         )
         total_loss = torch.zeros(())
@@ -89,7 +99,7 @@ def evaluate(module, *, scope, segment_scope, partition, step=3, repair_enabled=
                 metrics[key] = metrics.get(key, 0) + value
             offset = stop
         assert offset == len(lengths)
-        assert total_normalizer == weight_units
+        assert total_normalizer == len(lengths)
         loss = total_loss / total_normalizer
         loss.backward()
         return (loss.detach(), torch.cat([v.grad for v in current]),
@@ -97,6 +107,20 @@ def evaluate(module, *, scope, segment_scope, partition, step=3, repair_enabled=
 
 
 class LossPartitionTest(unittest.TestCase):
+    def test_uneven_dp_partitions_preserve_loss_gradients_and_metrics(self):
+        baseline = evaluate(triage, scope="adv_positive", segment_scope="q3", partition=[3])
+        for dp_partition in ((1, 2), (2, 1), (1, 1, 1)):
+            with self.subTest(dp_partition=dp_partition):
+                actual = evaluate(triage, scope="adv_positive", segment_scope="q3",
+                                  partition=[1, 1, 1], dp_partition=dp_partition)
+                torch.testing.assert_close(actual[0], baseline[0])
+                torch.testing.assert_close(actual[1], baseline[1])
+                for key in baseline[2]:
+                    if key != "triage_dp_world_size":
+                        torch.testing.assert_close(actual[2][key], baseline[2][key],
+                                                   msg=lambda msg: f"{key}: {msg}")
+                self.assertEqual(actual[2]["triage_dp_world_size"].item(), len(dp_partition))
+
     def test_loss_gradients_and_metrics_are_partition_invariant(self):
         for scope in ("whole", "adv_positive", "q2"):
             for segment_scope in ("whole", "q3"):

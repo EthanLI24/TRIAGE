@@ -116,7 +116,8 @@ CPU optimizer offload is enabled, matching the reference script; disable with
 For 30B, EP defaults to 8 and R3 defaults on; dense 4B requires R3 off.
 `TP`, `PP`, `CP`, `EP`, `ETP`, GPU counts, batch sizes, length budgets, LR, and
 rollout count accept environment overrides. TRIAGE currently requires CP=1 and
-zero entropy/reference-KL coefficients. All modes use token-level policy reduction.
+zero entropy/reference-KL coefficients. Baselines use token-level policy reduction;
+TRIAGE averages Gate-weighted response means through the custom-normalizer adapter.
 Batch invariant: `ROLLOUT_BATCH_SIZE * N_SAMPLES_PER_PROMPT = GLOBAL_BATCH_SIZE`.
 
 ## Algorithm defaults and overrides

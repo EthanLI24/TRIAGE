@@ -2,8 +2,8 @@
 
 The reward hook adjusts advantages before DP balancing. The rollout hook
 materializes detached token weights and global update metadata before training.
-The custom loss returns a numerator, metrics, and integer weighted-token
-normalizer for the supplied Slime adapter. Context parallel size must be 1,
+The custom loss returns a sum of weighted response means, metrics, and an integer
+response-count normalizer for the supplied Slime adapter. Context parallel size must be 1,
 and each rollout must contain exactly one complete optimizer update.
 """
 
@@ -699,7 +699,7 @@ def _materialize_token_weight_units(rollout_data):
 
 
 def triage_custom_loss(args, batch, logits, sum_of_sample_mean):
-    """Return (loss numerator, metric numerators, local weighted-token units)."""
+    """Return (sum of response losses, metric numerators, local response count)."""
     from slime.backends.megatron_utils.loss import get_log_probs_and_entropy
     from slime.utils.ppo_utils import compute_approx_kl, compute_policy_loss
 
@@ -790,8 +790,8 @@ def triage_custom_loss(args, batch, logits, sum_of_sample_mean):
     # ---- Gate detached segment weights ----
     # The gate was materialized by triage_rollout_postprocess
     # from Slime's immediately preceding current-policy forward.  Carrying those
-    # exact units with the sample lets Megatron aggregate one global denominator
-    # across arbitrary DP and micro-batch partitions.
+    # exact units with each sample preserves its weighted response mean across
+    # arbitrary DP and micro-batch partitions.
     token_weight_units = batch.get(TOKEN_WEIGHT_KEY)
     if token_weight_units is None or len(token_weight_units) != n:
         raise RuntimeError(
@@ -811,13 +811,15 @@ def triage_custom_loss(args, batch, logits, sum_of_sample_mean):
     if torch.any(token_weight_units_pad[~response_mask] != 0):
         raise RuntimeError("triage token-level batch assigns weight to a masked token")
     pg_weight = token_weight_units_pad.to(dtype) / float(TOKEN_WEIGHT_SCALE)
-    # Global weighted-token policy numerator.
-    # Units are 100*m*w, so numerator/normalizer is exactly
-    # sum(m*w*token_loss) / sum(m*w); the common factor 100 cancels.
-    custom_normalizer = token_weight_units_pad.sum(dtype=torch.int32).detach()
-    if custom_normalizer.item() <= 0:
-        raise RuntimeError("triage token-level micro-batch has a non-positive normalizer")
-    pg_loss = (pg_loss_pad * token_weight_units_pad.to(dtype)).sum()
+    # Paper Eqs. 16--17: weighted mean within each response, then equal response mean.
+    # The integer weight scale cancels within each row; Megatron sums response counts.
+    response_units = token_weight_units_pad.float().sum(dim=-1)
+    if n == 0 or (response_units <= 0).any():
+        raise RuntimeError("triage requires a positive Gate-weight sum for every response")
+    custom_normalizer = torch.tensor(n, dtype=torch.int32, device=device)
+    pg_loss = (
+        (pg_loss_pad.float() * token_weight_units_pad.float()).sum(dim=-1) / response_units
+    ).sum()
 
     # ---- entropy + KL (concat + passed sum_of_sample_mean; not seg-gated; matches policy_loss_function) ----
     entropy_loss = sum_of_sample_mean(entropy)
@@ -869,10 +871,8 @@ def triage_custom_loss(args, batch, logits, sum_of_sample_mean):
         repair_scoped_force_sum = repair_scoped_force_sum + (
             force.detach() * scope_fraction.detach()
         )
-    # Megatron will divide the accumulated loss by global_token_weight_units.
-    # Multiplying local penalty sums by U/S therefore preserves the exact
-    # global Repair segment mean: sum(P_local * U/S) / U = sum(P) / S.
-    repair_outer_scale = float(refs["global_token_weight_units"]) / float(
+    # The outer response mean preserves Repair's global segment mean via N/S.
+    repair_outer_scale = float(refs["global_n"]) / float(
         refs["global_valid_segments"]
     )
     repair_loss = repair_num.sum() * repair_outer_scale
@@ -886,20 +886,20 @@ def triage_custom_loss(args, batch, logits, sum_of_sample_mean):
     global_tokens = float(refs["global_token_count"])
     global_responses = float(refs["global_n"])
     global_segments = float(refs["global_valid_segments"])
-    local_units = custom_normalizer.to(dtype)
-    token_metric_scale = global_units / global_tokens
-    response_metric_scale = global_units / global_responses
-    segment_metric_scale = global_units / global_segments
+    local_responses = custom_normalizer.to(dtype)
+    token_metric_scale = global_responses / global_tokens
+    response_metric_scale = 1.0
+    segment_metric_scale = global_responses / global_segments
 
     def constant_metric(value):
-        return local_units * float(value)
+        return local_responses * float(value)
 
     def token_sum_metric(value):
         return value * token_metric_scale
 
     reported = {
         # Megatron divides every accumulated metric by the same custom
-        # weighted-token normalizer.  Each numerator below is therefore
+        # response-count normalizer.  Each numerator below is therefore
         # explicitly adapted to its intended token/response/segment mean.
         "loss": loss.clone().detach(),
         "pg_loss": pg_loss.clone().detach(),

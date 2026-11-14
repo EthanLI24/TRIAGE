@@ -1,8 +1,7 @@
 # Paper correspondence and reproduction notes
 
 How this repository maps to the accompanying paper, **TRIAGE: Direction-Aware
-Mismatch Stabilization of Native NVFP4 Reinforcement Learning**, and where the
-code intentionally differs from the objective as written there.
+Mismatch Stabilization of Native NVFP4 Reinforcement Learning**.
 
 ## Implementation map
 
@@ -10,7 +9,7 @@ code intentionally differs from the objective as written there.
 |---|---|---|
 | Gate | `_gate_weights` | [METHODS](METHODS.md) |
 | Repair | `_scoped_repair_segment_delta`, `_one_sided_pseudo_huber` | [METHODS](METHODS.md) |
-| Update normalization | `triage_rollout_postprocess`, `triage_custom_loss` | reduction difference below |
+| Update normalization | `triage_rollout_postprocess`, `triage_custom_loss` | response-mean reduction below |
 | Optional advantage balancing | `triage_group_recenter_reward_postprocess` | extra implementation option |
 | Optional calibrated Gate | `triage_calibration.segment_weights` | [CALIBRATION](CALIBRATION.md) |
 
@@ -29,13 +28,13 @@ Repair coefficient **0.015** and start index **0** match the reported
 configuration. The code retains `beta = 0.022360679775` (equivalently √0.0005);
 write-ups that round beta to 0.022 refer to the same value.
 
-## Loss-reduction difference
+## Loss reduction
 
-The paper's objective computes a weighted mean within each response, then takes
-the outer response mean. This branch retains **global weighted-token
-normalization** over the complete optimizer update, spanning all DP ranks and
-micro-batches. The two reductions are not identical, and scope selection does
-not remove the difference. The calibrated Gate is optional and is not the
+The implementation follows paper Eqs. 16--17: a Gate-weighted mean within each
+response, followed by an equal mean over responses in the complete optimizer
+update. The Slime adapter accumulates response counts across DP ranks and
+micro-batches. Repair retains its global valid-segment mean.
+The calibrated Gate is optional and is not the
 fixed-threshold Gate used in the reported main experiments.
 
 ## Results and reproducibility
